@@ -1,5 +1,6 @@
 package com.example.aplikacjapogodowa.CONTROLLER;
 
+import com.example.aplikacjapogodowa.Config;
 import com.example.aplikacjapogodowa.MODEL.Weather;
 import com.example.aplikacjapogodowa.MODEL.WeatherService;
 import com.example.aplikacjapogodowa.MODEL.WeatherServiceFactory;
@@ -13,6 +14,9 @@ import java.util.ResourceBundle;
 
 public class MainViewController implements FxmlDefinedController, Initializable {
     private final String fxmlName;
+    private Config config=new Config();
+    private String APIkey= config.getAPIkey();
+    private String url="https://api.openweathermap.org/data/3.0/onecall/timemachine?lat=39.099724&lon=-94.578331&dt=1643803200&appid={"+APIkey+"}";
 
     @FXML
     private Button checkWeatherButton;
