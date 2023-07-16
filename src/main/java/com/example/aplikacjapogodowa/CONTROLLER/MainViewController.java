@@ -49,4 +49,9 @@ public class MainViewController implements FxmlDefinedController, Initializable 
        teperatureLabel.setVisible(false);
 
     }
+
+    @Override
+    public String getFxmlName() {
+        return fxmlName;
+    }
 }
