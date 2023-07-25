@@ -4,24 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="510f8960-cd30-4ae3-bd04-5dd2d5109ea8" name="Changes" comment="add url to weather API">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/WeatherTestsClass.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/client/OpenWeatherMapsClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/openWeatherMapsFeatures/Clouds.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/openWeatherMapsFeatures/Coord.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/openWeatherMapsFeatures/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/openWeatherMapsFeatures/Root.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/openWeatherMapsFeatures/Sys.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/openWeatherMapsFeatures/Weather.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/openWeatherMapsFeatures/Wind.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/CONTROLLER/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/CONTROLLER/MainViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/Weather.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/Weather.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/WeatherApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/Launcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-    </list>
+    <list default="true" id="510f8960-cd30-4ae3-bd04-5dd2d5109ea8" name="Changes" comment="create openweathermaps API CLIENT-TEST" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -154,7 +137,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689526676376</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="create openweathermaps API CLIENT-TEST">
+      <created>1690284372980</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1690284372980</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -188,6 +178,7 @@
     <MESSAGE value="change weather client to interface" />
     <MESSAGE value="add setcontroller to launcher" />
     <MESSAGE value="add url to weather API" />
-    <option name="LAST_COMMIT_MESSAGE" value="add url to weather API" />
+    <MESSAGE value="create openweathermaps API CLIENT-TEST" />
+    <option name="LAST_COMMIT_MESSAGE" value="create openweathermaps API CLIENT-TEST" />
   </component>
 </project>

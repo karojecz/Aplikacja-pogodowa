@@ -1,7 +1,7 @@
 package com.example.aplikacjapogodowa.MODEL.client;
 
 import com.example.aplikacjapogodowa.MODEL.Weather;
-import com.example.aplikacjapogodowa.MODEL.WeatherTestsClass;
+
 import com.example.aplikacjapogodowa.MODEL.client.WeatherClient;
 import com.example.aplikacjapogodowa.MODEL.openWeatherMapsFeatures.Root;
 import com.fasterxml.jackson.databind.ObjectMapper;
