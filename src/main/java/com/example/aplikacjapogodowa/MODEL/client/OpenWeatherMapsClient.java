@@ -1,5 +1,6 @@
 package com.example.aplikacjapogodowa.MODEL.client;
 
+import com.example.aplikacjapogodowa.Config;
 import com.example.aplikacjapogodowa.MODEL.Weather;
 
 import com.example.aplikacjapogodowa.MODEL.client.WeatherClient;
@@ -28,7 +29,11 @@ public class OpenWeatherMapsClient implements WeatherClient {
        return null;
     }
     public void testApi() throws IOException {
-        URL url=new URL("http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=a726ecc4c3e0e1118a0210537040f19f");
+        String city="London";
+        String APIkey= Config.getAPIkey();
+        URL endpointTEST=new URL("http://api.openweathermap.org");
+        String countryCode="uk";
+        URL url=new URL(endpointTEST,"/data/2.5/weather?q="+city+","+countryCode+"&APPID="+APIkey);
         InputStreamReader reader=new InputStreamReader(url.openStream());
 
         try {
