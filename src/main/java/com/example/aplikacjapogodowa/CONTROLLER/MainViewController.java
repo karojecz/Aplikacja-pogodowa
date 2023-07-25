@@ -14,9 +14,8 @@ import java.util.ResourceBundle;
 
 public class MainViewController implements FxmlDefinedController, Initializable {
     private final String fxmlName;
-    private Config config=new Config();
-    private String APIkey= config.getAPIkey();
-    private String url="https://api.openweathermap.org/data/3.0/onecall/timemachine?lat=39.099724&lon=-94.578331&dt=1643803200&appid={"+APIkey+"}";
+
+
 
     @FXML
     private Button checkWeatherButton;
@@ -41,7 +40,7 @@ public class MainViewController implements FxmlDefinedController, Initializable 
     private void displayWeather(Weather weather) {
         temperature.setVisible(true);
         teperatureLabel.setVisible(true);
-        temperature.setText(" "+weather.getTempInCelcius());
+       // temperature.setText(" "+weather.getTempInCelcius());
 
     }
 

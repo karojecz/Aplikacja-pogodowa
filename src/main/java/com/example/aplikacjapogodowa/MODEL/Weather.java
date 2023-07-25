@@ -3,6 +3,8 @@ package com.example.aplikacjapogodowa.MODEL;
 import java.time.LocalDate;
 
 public class Weather {
+
+
     String cityName;
     double tempInCelcius;
     LocalDate localDate;
@@ -17,6 +19,7 @@ public class Weather {
     public String getTempInCelcius() {
         return "10 stopni";
     }
+
 
 
 }
