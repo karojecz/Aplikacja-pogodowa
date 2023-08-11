@@ -8,18 +8,27 @@ public class Weather {
     String cityName;
     double tempInCelcius;
     LocalDate localDate;
+    double rain;
 
-    public Weather(String cityname, double tempInCelcius, LocalDate localDate) {
+    public Weather(String cityname, double tempInCelcius ) {
         this.cityName=cityname;
         this.tempInCelcius=tempInCelcius;
-        this.localDate=localDate;
+
+
 
     }
 
-    public String getTempInCelcius() {
-        return "10 stopni";
+    public double getTempInCelcius() {
+        return this.tempInCelcius;
     }
 
-
-
+    @Override
+    public String toString() {
+        return "Weather{" +
+                "cityName='" + cityName + '\'' +
+                ", tempInCelcius=" + tempInCelcius +
+                ", localDate=" + localDate +
+                ", rain=" + rain +
+                '}';
+    }
 }

@@ -13,6 +13,7 @@ public class Root{
     public Main main;
     public int visibility;
     public Wind wind;
+    public Rain rain;
     public Clouds clouds;
     public int dt;
     public Sys sys;
@@ -30,6 +31,7 @@ public class Root{
                 ", main=" + main +
                 ", visibility=" + visibility +
                 ", wind=" + wind +
+                "Rain="+rain+
                 ", clouds=" + clouds +
                 ", dt=" + dt +
                 ", sys=" + sys +

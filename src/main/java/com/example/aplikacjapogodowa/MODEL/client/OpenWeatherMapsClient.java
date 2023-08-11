@@ -25,15 +25,32 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class OpenWeatherMapsClient implements WeatherClient {
 
     @Override
-    public Weather getWeather(String cityname) {
+    public Weather getWeather(String cityname, String countryName) throws IOException {
+
+        String city=cityname;
+        String APIkey= Config.getAPIkey();
+        URL endpointTEST=new URL("http://api.openweathermap.org");
+        String countryCode=countryName;
+        URL url=new URL(endpointTEST,"/data/2.5/weather?q="+city+","+countryCode+"&appid="+APIkey+"&units=metric");
+        InputStreamReader reader=new InputStreamReader(url.openStream());
+
+        try {
+            ObjectMapper om = new ObjectMapper();
+            Root root = om.readValue(reader, Root.class);
+            System.out.println(root);
+            return new Weather(cityname,root.main.temp);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
        return null;
     }
     public void testApi() throws IOException {
-        String city="London";
-        String APIkey= Config.getAPIkey();
+        String city="czaplinek";
+        String APIkey= Config.getAPIkey2();
         URL endpointTEST=new URL("http://api.openweathermap.org");
-        String countryCode="uk";
-        URL url=new URL(endpointTEST,"/data/2.5/weather?q="+city+","+countryCode+"&APPID="+APIkey);
+        String countryCode="pl";
+        URL url=new URL(endpointTEST,"/data/2.5/weather?q="+city+","+countryCode+"&APPID="+APIkey+"&units=metric");
         InputStreamReader reader=new InputStreamReader(url.openStream());
 
         try {
@@ -46,19 +63,7 @@ public class OpenWeatherMapsClient implements WeatherClient {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
     }
-
 
 }
 

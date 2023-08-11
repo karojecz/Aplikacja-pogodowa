@@ -7,6 +7,8 @@ public class Main{
     public double temp_max;
     public int pressure;
     public int humidity;
+    public int sea_level;
+    public int grnd_level;
 
     @Override
     public String toString() {
@@ -17,6 +19,8 @@ public class Main{
                 ", temp_max=" + temp_max +
                 ", pressure=" + pressure +
                 ", humidity=" + humidity +
+                "sea level" + sea_level+
+                "grnd level"+grnd_level+
                 '}';
     }
 }

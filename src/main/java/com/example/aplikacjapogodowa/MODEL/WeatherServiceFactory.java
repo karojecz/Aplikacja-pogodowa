@@ -1,6 +1,7 @@
 package com.example.aplikacjapogodowa.MODEL;
 
 import com.example.aplikacjapogodowa.MODEL.client.ExampleWeatherClient;
+import com.example.aplikacjapogodowa.MODEL.client.OpenWeatherMapsClient;
 import com.example.aplikacjapogodowa.MODEL.client.WeatherClient;
 
 public class WeatherServiceFactory {
@@ -12,6 +13,6 @@ public class WeatherServiceFactory {
     }
 
     private static WeatherClient createWeatherClient() {
-        return new ExampleWeatherClient();
+        return new OpenWeatherMapsClient();
     }
 }
