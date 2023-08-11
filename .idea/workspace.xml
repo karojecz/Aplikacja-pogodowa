@@ -4,20 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="510f8960-cd30-4ae3-bd04-5dd2d5109ea8" name="Changes" comment="add variables to url apitest">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/openWeatherMapsFeatures/Rain.java" afterDir="false" />
+    <list default="true" id="510f8960-cd30-4ae3-bd04-5dd2d5109ea8" name="Changes" comment="add new labels to view">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/CONTROLLER/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/CONTROLLER/MainViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/Launcher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/Weather.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/Weather.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/WeatherService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/WeatherService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/WeatherServiceFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/WeatherServiceFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/client/ExampleWeatherClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/client/ExampleWeatherClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/client/OpenWeatherMapsClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/client/OpenWeatherMapsClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/client/WeatherClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/client/WeatherClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/openWeatherMapsFeatures/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/openWeatherMapsFeatures/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/openWeatherMapsFeatures/Root.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/openWeatherMapsFeatures/Root.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/openWeatherMapsFeatures/Wind.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/openWeatherMapsFeatures/Wind.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/aplikacjapogodowa/MainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/aplikacjapogodowa/MainView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/client/OpenWeatherMapsClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/client/OpenWeatherMapsClientCurrent.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,7 +159,14 @@
       <option name="project" value="LOCAL" />
       <updated>1690284533928</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="add new labels to view">
+      <created>1691744315947</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1691744315947</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -202,6 +202,7 @@
     <MESSAGE value="add url to weather API" />
     <MESSAGE value="create openweathermaps API CLIENT-TEST" />
     <MESSAGE value="fix api openweathermaps bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix api openweathermaps bug" />
+    <MESSAGE value="add new labels to view" />
+    <option name="LAST_COMMIT_MESSAGE" value="add new labels to view" />
   </component>
 </project>

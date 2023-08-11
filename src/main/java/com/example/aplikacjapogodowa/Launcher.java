@@ -1,7 +1,7 @@
 package com.example.aplikacjapogodowa;
 
 import com.example.aplikacjapogodowa.CONTROLLER.MainViewController;
-import com.example.aplikacjapogodowa.MODEL.client.OpenWeatherMapsClient;
+import com.example.aplikacjapogodowa.MODEL.client.OpenWeatherMapsClientCurrent;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -24,7 +24,7 @@ public class Launcher extends Application {
         stage.setScene(scene);
         stage.show();
 
-        OpenWeatherMapsClient openWeatherMapsClient=new OpenWeatherMapsClient();
+        OpenWeatherMapsClientCurrent openWeatherMapsClient=new OpenWeatherMapsClientCurrent();
 
             openWeatherMapsClient.testApi();
 

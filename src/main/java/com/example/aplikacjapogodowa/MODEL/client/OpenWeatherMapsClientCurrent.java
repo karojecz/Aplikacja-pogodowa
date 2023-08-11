@@ -3,26 +3,16 @@ package com.example.aplikacjapogodowa.MODEL.client;
 import com.example.aplikacjapogodowa.Config;
 import com.example.aplikacjapogodowa.MODEL.Weather;
 
-import com.example.aplikacjapogodowa.MODEL.client.WeatherClient;
 import com.example.aplikacjapogodowa.MODEL.openWeatherMapsFeatures.Root;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.gson.Gson;
-import com.google.gson.JsonSyntaxException;
 
 
-import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.*;
-import java.net.http.HttpRequest;
-import java.util.Scanner;
 
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-
-public class OpenWeatherMapsClient implements WeatherClient {
+public class OpenWeatherMapsClientCurrent implements WeatherClient {
 
     @Override
     public Weather getWeather(String cityname, String countryName) throws IOException {
@@ -38,7 +28,15 @@ public class OpenWeatherMapsClient implements WeatherClient {
             ObjectMapper om = new ObjectMapper();
             Root root = om.readValue(reader, Root.class);
             System.out.println(root);
-            return new Weather(cityname,root.main.temp);
+            double rain=0;
+            double windSpeed=0;
+            if(root.wind!=null){
+                windSpeed=root.wind.speed;
+            }
+            if(root.rain!=null){
+                rain=root.rain._1h;
+            }
+            return new Weather(cityname,root.main.temp,rain,windSpeed);
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -54,7 +54,10 @@ public class MainViewController implements FxmlDefinedController, Initializable 
     private void displayWeather(Weather weather) {
         temperature.setVisible(true);
         teperatureLabel.setVisible(true);
-        temperature.setText("temp[C]: "+String.valueOf(weather.getTempInCelcius()));
+        temperature.setText(String.valueOf(weather.getTempInCelcius()));
+        rain.setText(String.valueOf(weather.getRain()));
+        city.setText(weather.getCityName());
+        wind.setText(String.valueOf(weather.getWindSpeed()));
         System.out.println(weather.toString());
 
     }

@@ -9,10 +9,13 @@ public class Weather {
     double tempInCelcius;
     LocalDate localDate;
     double rain;
+    double windSpeed;
 
-    public Weather(String cityname, double tempInCelcius ) {
+    public Weather(String cityname, double tempInCelcius, double rain, double wind ) {
         this.cityName=cityname;
         this.tempInCelcius=tempInCelcius;
+        this.rain=rain;
+        this.windSpeed=wind;
 
 
 
@@ -20,6 +23,19 @@ public class Weather {
 
     public double getTempInCelcius() {
         return this.tempInCelcius;
+    }
+
+    public String getCityName() {
+        return cityName;
+    }
+
+    public double getRain() {
+
+        return rain;
+    }
+
+    public double getWindSpeed() {
+        return windSpeed;
     }
 
     @Override
