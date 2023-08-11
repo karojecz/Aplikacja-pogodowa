@@ -3,7 +3,7 @@ package com.example.aplikacjapogodowa.MODEL.client;
 import com.example.aplikacjapogodowa.Config;
 import com.example.aplikacjapogodowa.MODEL.Weather;
 
-import com.example.aplikacjapogodowa.MODEL.openWeatherMapsFeatures.Root;
+import com.example.aplikacjapogodowa.MODEL.openWeatherMapsFeaturesCurrent.Root;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 

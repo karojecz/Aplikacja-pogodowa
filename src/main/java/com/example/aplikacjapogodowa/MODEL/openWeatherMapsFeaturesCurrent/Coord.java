@@ -1,4 +1,4 @@
-package com.example.aplikacjapogodowa.MODEL.openWeatherMapsFeatures;
+package com.example.aplikacjapogodowa.MODEL.openWeatherMapsFeaturesCurrent;
 
 public class Coord{
     public double lon;

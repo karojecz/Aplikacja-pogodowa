@@ -1,4 +1,4 @@
-package com.example.aplikacjapogodowa.MODEL.openWeatherMapsFeatures;
+package com.example.aplikacjapogodowa.MODEL.openWeatherMapsFeaturesCurrent;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
