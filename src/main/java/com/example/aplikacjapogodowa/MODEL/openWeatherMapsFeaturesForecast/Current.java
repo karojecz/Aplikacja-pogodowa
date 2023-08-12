@@ -16,5 +16,27 @@ public class Current {
     public int visibility;
     public double wind_speed;
     public int wind_deg;
+    public double wind_gust;
     public ArrayList<Weather> weather;
+
+    @Override
+    public String toString() {
+        return "Current{" +
+                "dt=" + dt +
+                ", sunrise=" + sunrise +
+                ", sunset=" + sunset +
+                ", temp=" + temp +
+                ", feels_like=" + feels_like +
+                ", pressure=" + pressure +
+                ", humidity=" + humidity +
+                ", dew_point=" + dew_point +
+                ", uvi=" + uvi +
+                ", clouds=" + clouds +
+                ", visibility=" + visibility +
+                ", wind_speed=" + wind_speed +
+                ", wind_deg=" + wind_deg +
+                ", wind_gust=" + wind_gust +
+                ", weather=" + weather +
+                '}';
+    }
 }

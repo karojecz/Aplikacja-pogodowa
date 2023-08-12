@@ -17,4 +17,24 @@ public class Hourly {
     public double wind_gust;
     public ArrayList<Weather> weather;
     public double pop;
+
+    @Override
+    public String toString() {
+        return "Hourly{" +
+                "dt=" + dt +
+                ", temp=" + temp +
+                ", feels_like=" + feels_like +
+                ", pressure=" + pressure +
+                ", humidity=" + humidity +
+                ", dew_point=" + dew_point +
+                ", uvi=" + uvi +
+                ", clouds=" + clouds +
+                ", visibility=" + visibility +
+                ", wind_speed=" + wind_speed +
+                ", wind_deg=" + wind_deg +
+                ", wind_gust=" + wind_gust +
+                ", weather=" + weather +
+                ", pop=" + pop +
+                '}';
+    }
 }

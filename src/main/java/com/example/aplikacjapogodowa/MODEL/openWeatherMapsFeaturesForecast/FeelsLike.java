@@ -5,4 +5,14 @@ public class FeelsLike {
     public double night;
     public double eve;
     public double morn;
+
+    @Override
+    public String toString() {
+        return "FeelsLike{" +
+                "day=" + day +
+                ", night=" + night +
+                ", eve=" + eve +
+                ", morn=" + morn +
+                '}';
+    }
 }

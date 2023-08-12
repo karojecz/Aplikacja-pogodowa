@@ -17,5 +17,6 @@ module com.example.aplikacjapogodowa {
     opens com.example.aplikacjapogodowa.CONTROLLER;
     opens com.example.aplikacjapogodowa.MODEL;
     opens com.example.aplikacjapogodowa.MODEL.openWeatherMapsFeaturesCurrent;
+    opens  com.example.aplikacjapogodowa.MODEL.openWeatherMapsFeaturesForecast;
     exports com.example.aplikacjapogodowa;
 }

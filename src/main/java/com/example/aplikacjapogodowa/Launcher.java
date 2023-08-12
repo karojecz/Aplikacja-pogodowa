@@ -27,9 +27,9 @@ public class Launcher extends Application {
 
        // OpenWeatherMapsClientCurrent openWeatherMapsClient=new OpenWeatherMapsClientCurrent();
 
-           // openWeatherMapsClient.testApi();
-        OpenWeatherMapsClientForecast openWeatherMapsClientForecast=new OpenWeatherMapsClientForecast();
-        openWeatherMapsClientForecast.testForecastAPI();
+          // openWeatherMapsClient.testApi();
+       OpenWeatherMapsClientForecast openWeatherMapsClientForecast=new OpenWeatherMapsClientForecast();
+       openWeatherMapsClientForecast.testForecastAPI();
 
 
 
