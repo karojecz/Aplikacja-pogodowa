@@ -1,6 +1,7 @@
 package com.example.aplikacjapogodowa.MODEL;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class Weather {
 
@@ -10,6 +11,9 @@ public class Weather {
     LocalDate localDate;
     double rain;
     double windSpeed;
+    double lat;
+    double lon;
+
 
     public Weather(String cityname, double tempInCelcius, double rain, double wind ) {
         this.cityName=cityname;
@@ -36,6 +40,18 @@ public class Weather {
 
     public double getWindSpeed() {
         return windSpeed;
+    }
+
+    public LocalDate getLocalDate() {
+        return localDate;
+    }
+
+    public double getLat() {
+        return lat;
+    }
+
+    public double getLon() {
+        return lon;
     }
 
     @Override

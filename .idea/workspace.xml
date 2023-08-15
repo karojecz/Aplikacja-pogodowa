@@ -4,20 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="510f8960-cd30-4ae3-bd04-5dd2d5109ea8" name="Changes" comment="add package openWeatherMapsFeaturesFcorecast">
+    <list default="true" id="510f8960-cd30-4ae3-bd04-5dd2d5109ea8" name="Changes" comment="add to string metod to RootForecast">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/openWeatherMapsFeaturesForecast/Rain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/Launcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/Weather.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/Weather.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/client/OpenWeatherMapsClientCurrent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/client/OpenWeatherMapsClientCurrent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/client/OpenWeatherMapsClientForecast.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/client/OpenWeatherMapsClientForecast.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/openWeatherMapsFeaturesForecast/Alert.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/openWeatherMapsFeaturesForecast/Alert.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/openWeatherMapsFeaturesForecast/Current.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/openWeatherMapsFeaturesForecast/Current.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/openWeatherMapsFeaturesForecast/Daily.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/openWeatherMapsFeaturesForecast/Daily.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/openWeatherMapsFeaturesForecast/FeelsLike.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/openWeatherMapsFeaturesForecast/FeelsLike.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/openWeatherMapsFeaturesForecast/Hourly.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/openWeatherMapsFeaturesForecast/Hourly.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/openWeatherMapsFeaturesForecast/Minutely.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/openWeatherMapsFeaturesForecast/Minutely.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/openWeatherMapsFeaturesForecast/Root.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/openWeatherMapsFeaturesForecast/RootForecast.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/openWeatherMapsFeaturesForecast/Temp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/openWeatherMapsFeaturesForecast/Temp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/openWeatherMapsFeaturesForecast/Weather.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/openWeatherMapsFeaturesForecast/Weather.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,7 +183,14 @@
       <option name="project" value="LOCAL" />
       <updated>1691779213579</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="add to string metod to RootForecast">
+      <created>1691821508379</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1691821508379</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -229,6 +229,7 @@
     <MESSAGE value="add new labels to view" />
     <MESSAGE value="add new class OpenWeatherMapsClientForecast" />
     <MESSAGE value="add package openWeatherMapsFeaturesFcorecast" />
-    <option name="LAST_COMMIT_MESSAGE" value="add package openWeatherMapsFeaturesFcorecast" />
+    <MESSAGE value="add to string metod to RootForecast" />
+    <option name="LAST_COMMIT_MESSAGE" value="add to string metod to RootForecast" />
   </component>
 </project>

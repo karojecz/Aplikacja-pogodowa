@@ -17,6 +17,7 @@ public class Hourly {
     public double wind_gust;
     public ArrayList<Weather> weather;
     public double pop;
+    public Rain rain;
 
     @Override
     public String toString() {

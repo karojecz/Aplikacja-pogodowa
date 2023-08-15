@@ -13,15 +13,18 @@ import java.net.URL;
 public class OpenWeatherMapsClientForecast implements WeatherClient{
 
     @Override
-    public Weather getWeather(String cityname, String countryName) throws IOException {
-        return null;
-    }
-    public void testForecastAPI() throws IOException {
-      //  String city="czaplinek";
-        //String APIkey= Config.getAPIkey2();
-        //URL endpointTEST=new URL("http://api.openweathermap.org");
-        //String countryCode="pl";
-        URL url=new URL("https://api.openweathermap.org/data/3.0/onecall?lat=33.44&lon=-94.04&appid=a726ecc4c3e0e1118a0210537040f19f");
+    public Weather getWeather(String cityName, String countryName) throws IOException {
+
+        OpenWeatherMapsClientCurrent openWeatherMapsClientCurrent=new OpenWeatherMapsClientCurrent();
+        Weather weather=openWeatherMapsClientCurrent.getWeather(cityName,countryName);
+        double lon=getLonForCity(weather);
+        double lat=getLatForCity(weather);
+
+
+        String APIkey= Config.getAPIkey();
+        URL endpointTEST=new URL("http://api.openweathermap.org");
+        URL url=new URL(endpointTEST,"/data/3.0/onecall?lat="+lat+"&lon=-"+lon+"&appid="+APIkey+"&units=metric");
+
         InputStreamReader reader=new InputStreamReader(url.openStream());
 
 
@@ -30,11 +33,56 @@ public class OpenWeatherMapsClientForecast implements WeatherClient{
             System.out.println(om.readTree(url));
             RootForecast root = om.readValue(reader, RootForecast.class);
             System.out.println(root);
-            System.out.println(root.current.clouds);
+            System.out.println("first day: "+root.daily.get(0));
         } catch (Exception e) {
             e.printStackTrace();
         }
 
 
+
+
+
+        return null;
+    }
+    public void testForecastAPI() throws IOException {
+
+
+
+        OpenWeatherMapsClientCurrent openWeatherMapsClientCurrent=new OpenWeatherMapsClientCurrent();
+        String ciytyName="london";
+        String countryName="uk";
+
+        String lon=String.valueOf(openWeatherMapsClientCurrent.getCoord(ciytyName,countryName).lon);
+        String lat=String.valueOf(openWeatherMapsClientCurrent.getCoord(ciytyName,countryName).lat);
+
+
+        String APIkey= Config.getAPIkey();
+        URL endpointTEST=new URL("http://api.openweathermap.org");
+        URL url=new URL(endpointTEST,"/data/3.0/onecall?lat="+lat+"&lon="+lon+"&appid="+APIkey+"&units=metric");
+
+        InputStreamReader reader=new InputStreamReader(url.openStream());
+
+
+        try {
+            ObjectMapper om = new ObjectMapper();
+            System.out.println("url check "+om.readTree(url));
+            RootForecast root = om.readValue(reader, RootForecast.class);
+            System.out.println(root);
+            System.out.println("first day: "+root.daily.get(0));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+    }
+    private double getLatForCity(Weather weather)  {
+
+
+
+        return weather.getLat();
+
+    }
+    private double getLonForCity(Weather weather){
+        return weather.getLon();
     }
 }
