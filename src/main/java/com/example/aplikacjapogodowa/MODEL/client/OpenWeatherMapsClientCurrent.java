@@ -11,6 +11,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.*;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
 
 
 public class OpenWeatherMapsClientCurrent implements WeatherClient {
@@ -32,16 +35,20 @@ public class OpenWeatherMapsClientCurrent implements WeatherClient {
         try {
             ObjectMapper om = new ObjectMapper();
             Root root = om.readValue(reader, Root.class);
-            System.out.println(root);
+           // System.out.println(root);
             double rain=0;
             double windSpeed=0;
+            ZoneId zone = ZoneId.of("America/Edmonton");
+           LocalDate localDate= LocalDate.ofEpochDay(root.dt);
+
             if(root.wind!=null){
                 windSpeed=root.wind.speed;
             }
             if(root.rain!=null){
                 rain=root.rain._1h;
             }
-            return new Weather(cityname,root.main.temp,rain,windSpeed);
+
+            return new Weather(cityname,root.main.temp,rain,windSpeed,localDate);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -59,7 +66,7 @@ public class OpenWeatherMapsClientCurrent implements WeatherClient {
         try {
             ObjectMapper om = new ObjectMapper();
             Root root = om.readValue(reader, Root.class);
-            System.out.println(root);
+           // System.out.println(root);
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -1,6 +1,6 @@
 package com.example.aplikacjapogodowa.CONTROLLER;
 
-import com.example.aplikacjapogodowa.Config;
+
 import com.example.aplikacjapogodowa.MODEL.Weather;
 import com.example.aplikacjapogodowa.MODEL.WeatherService;
 import com.example.aplikacjapogodowa.MODEL.WeatherServiceFactory;
@@ -19,6 +19,8 @@ public class MainViewController implements FxmlDefinedController, Initializable 
 
 
 
+    @FXML
+    private Label date;
     @FXML
     private Button checkWeatherButton;
 
@@ -55,10 +57,13 @@ public class MainViewController implements FxmlDefinedController, Initializable 
         temperature.setVisible(true);
         teperatureLabel.setVisible(true);
         temperature.setText(String.valueOf(weather.getTempInCelcius()));
+        date.setText(String.valueOf(weather.getDate()));
         rain.setText(String.valueOf(weather.getRain()));
         city.setText(weather.getCityName());
         wind.setText(String.valueOf(weather.getWindSpeed()));
-        System.out.println(weather.toString());
+      //  System.out.println(weather.toString());
+
+
 
     }
 
@@ -67,7 +72,7 @@ public class MainViewController implements FxmlDefinedController, Initializable 
     public void initialize(URL url, ResourceBundle resourceBundle) {
         weatherService= WeatherServiceFactory.createWeatherService();
         temperature.setVisible(false);
-       teperatureLabel.setVisible(false);
+        teperatureLabel.setVisible(false);
 
     }
 

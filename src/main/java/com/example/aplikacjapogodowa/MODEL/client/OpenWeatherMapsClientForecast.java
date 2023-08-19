@@ -8,6 +8,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.security.Timestamp;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
 
 
 public class OpenWeatherMapsClientForecast implements WeatherClient{
@@ -17,23 +22,36 @@ public class OpenWeatherMapsClientForecast implements WeatherClient{
 
         OpenWeatherMapsClientCurrent openWeatherMapsClientCurrent=new OpenWeatherMapsClientCurrent();
         Weather weather=openWeatherMapsClientCurrent.getWeather(cityName,countryName);
-        double lon=getLonForCity(weather);
-        double lat=getLatForCity(weather);
+        String lon=String.valueOf(openWeatherMapsClientCurrent.getCoord(cityName,countryName).lon);
+        String lat=String.valueOf(openWeatherMapsClientCurrent.getCoord(cityName,countryName).lat);
 
 
         String APIkey= Config.getAPIkey();
         URL endpointTEST=new URL("http://api.openweathermap.org");
-        URL url=new URL(endpointTEST,"/data/3.0/onecall?lat="+lat+"&lon=-"+lon+"&appid="+APIkey+"&units=metric");
+        URL url=new URL(endpointTEST,"/data/3.0/onecall?lat="+lat+"&lon="+lon+"&appid="+APIkey+"&units=metric");
 
         InputStreamReader reader=new InputStreamReader(url.openStream());
 
 
         try {
             ObjectMapper om = new ObjectMapper();
-            System.out.println(om.readTree(url));
+
             RootForecast root = om.readValue(reader, RootForecast.class);
             System.out.println(root);
             System.out.println("first day: "+root.daily.get(0));
+            System.out.println(root.daily.get(0).temp.day);
+            double rain=0;
+
+
+int timeInMili =root.daily.get(0).dt;
+            System.out.println(timeInMili);
+            Instant instant = Instant.ofEpochMilli((timeInMili*1000L));
+            System.out.println(instant);
+            ZoneId zone = ZoneId.of("America/Edmonton");
+            LocalDate date = LocalDate.ofInstant(instant, zone);
+            System.out.println(date);
+
+            return new Weather(cityName,root.daily.get(0).temp.day,root.daily.get(0).rain,root.daily.get(0).wind_speed, date);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -45,8 +63,6 @@ public class OpenWeatherMapsClientForecast implements WeatherClient{
         return null;
     }
     public void testForecastAPI() throws IOException {
-
-
 
         OpenWeatherMapsClientCurrent openWeatherMapsClientCurrent=new OpenWeatherMapsClientCurrent();
         String ciytyName="london";
@@ -65,24 +81,16 @@ public class OpenWeatherMapsClientForecast implements WeatherClient{
 
         try {
             ObjectMapper om = new ObjectMapper();
-            System.out.println("url check "+om.readTree(url));
+          //  System.out.println("url check "+om.readTree(url));
             RootForecast root = om.readValue(reader, RootForecast.class);
-            System.out.println(root);
-            System.out.println("first day: "+root.daily.get(0));
+          //  System.out.println(root);
+          //  System.out.println("first day: "+root.daily.get(0));
         } catch (Exception e) {
             e.printStackTrace();
         }
 
 
-    }
-    private double getLatForCity(Weather weather)  {
-
-
-
-        return weather.getLat();
 
     }
-    private double getLonForCity(Weather weather){
-        return weather.getLon();
-    }
+
 }

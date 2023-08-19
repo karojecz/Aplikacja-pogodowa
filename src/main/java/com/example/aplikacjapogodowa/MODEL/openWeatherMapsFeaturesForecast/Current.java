@@ -18,6 +18,7 @@ public class Current {
     public int wind_deg;
     public double wind_gust;
     public ArrayList<Weather> weather;
+    public double rain;
 
     @Override
     public String toString() {

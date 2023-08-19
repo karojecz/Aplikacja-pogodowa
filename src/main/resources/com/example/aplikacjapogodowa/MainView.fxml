@@ -20,5 +20,7 @@
       <Label fx:id="rain" layoutX="109.0" layoutY="281.0" text="Label" />
       <Label layoutX="22.0" layoutY="206.0" prefHeight="17.0" prefWidth="66.0" text="city" />
       <Label fx:id="city" layoutX="109.0" layoutY="206.0" text="Label" />
+      <Label layoutX="22.0" layoutY="189.0" text="Date" />
+      <Label fx:id="date" layoutX="109.0" layoutY="189.0" text="Label" />
    </children>
 </AnchorPane>
