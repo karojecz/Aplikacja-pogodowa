@@ -43,13 +43,13 @@ public class OpenWeatherMapsClientForecast implements WeatherClient{
             double rain=0;
 
 
-int timeInMili =root.daily.get(0).dt;
-            System.out.println(timeInMili);
+            int timeInMili =root.daily.get(0).dt;
+
             Instant instant = Instant.ofEpochMilli((timeInMili*1000L));
-            System.out.println(instant);
+
             ZoneId zone = ZoneId.of("America/Edmonton");
             LocalDate date = LocalDate.ofInstant(instant, zone);
-            System.out.println(date);
+
 
             return new Weather(cityName,root.daily.get(0).temp.day,root.daily.get(0).rain,root.daily.get(0).wind_speed, date);
         } catch (Exception e) {
