@@ -27,6 +27,10 @@ public class Weather {
 
 
     }
+    public Weather(double tempIncelcius, double rain){
+        this.tempInCelcius=tempIncelcius;
+        this.rain=rain;
+    }
 
     public double getTempInCelcius() {
         return this.tempInCelcius;

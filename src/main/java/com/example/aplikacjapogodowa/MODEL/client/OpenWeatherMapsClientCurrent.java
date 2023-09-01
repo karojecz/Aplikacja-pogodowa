@@ -74,6 +74,7 @@ public class OpenWeatherMapsClientCurrent implements WeatherClient {
 
 
     }
+
     public Coord getCoord(String cityName, String countrName) throws IOException {
         String city=cityName;
         String APIkey= Config.getAPIkey2();
@@ -92,6 +93,9 @@ public class OpenWeatherMapsClientCurrent implements WeatherClient {
         }
         return null;
     }
+
+
+
 
 
 

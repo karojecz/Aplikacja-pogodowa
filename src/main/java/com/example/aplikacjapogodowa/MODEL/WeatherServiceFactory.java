@@ -7,12 +7,10 @@ import com.example.aplikacjapogodowa.MODEL.client.WeatherClient;
 public class WeatherServiceFactory {
 
     public static WeatherService createWeatherService() {
-
-
         return new WeatherService(createWeatherClient());
     }
 
-    private static WeatherClient createWeatherClient() {
+    private static OpenWeatherMapsClientForecast createWeatherClient() {
         return new OpenWeatherMapsClientForecast();
     }
 }
