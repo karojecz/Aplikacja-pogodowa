@@ -14,6 +14,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -25,12 +26,20 @@ public class MainViewController implements FxmlDefinedController, Initializable 
     private Button checkWeatherButton;
 
     @FXML
-    private TableColumn<Weather, Double> tempDestinationDay1;
+    private TableColumn<WeatherForecast, LocalDateTime> dateDestination;
+    @FXML
+    private TableColumn<?, ?> descriptionDestination;
+
+    @FXML
+    private TableColumn<?, ?> pressureDestination;
+
+    @FXML
+    private TableColumn<?, ?> rainDestination;
 
 
 
     @FXML
-    private TableView<Weather> TableDestinationDay1;
+    private TableView<WeatherForecast> TableDestinationDay1;
 
 
 
@@ -40,8 +49,11 @@ public class MainViewController implements FxmlDefinedController, Initializable 
     @FXML
     private TextField countryName;
 
+
     @FXML
-    private TableColumn<Weather, Double> dateDestinationDay1;
+    private TableColumn<WeatherForecast, Double> temperatureDestination;
+    ;
+
 
     private WeatherService weatherService;
     public MainViewController(String fxmlName){this.fxmlName=fxmlName;}
@@ -51,8 +63,8 @@ public class MainViewController implements FxmlDefinedController, Initializable 
 
         String cityName=this.cityName.getText();
         String countryName=this.countryName.getText();
-        ArrayList<WeatherForecast> weather=weatherService.getForecastWeather(cityName,countryName);
-        displayWeatherFor5days(weather);
+        ObservableList<WeatherForecast> weather=weatherService.getForecastWeather(cityName,countryName);
+        testDisplayTable(weather);
 
     }
 
@@ -71,20 +83,15 @@ public class MainViewController implements FxmlDefinedController, Initializable 
 
 
     }
-    private final ObservableList<Weather> data =
-            FXCollections.observableArrayList(
-                    new Weather(12d, 34d),
-                    new Weather(34d,121d),
-                    new Weather(21d,23d)
-            );
-    private void testDisplayTable(){
-        Weather weather=new Weather(12d,23d);
+
+    private void testDisplayTable(ObservableList<WeatherForecast> data){
 
 
 
-        dateDestinationDay1.setCellValueFactory(new PropertyValueFactory<Weather,Double>("tempInCelcius"));
 
-        tempDestinationDay1.setCellValueFactory(new PropertyValueFactory<Weather,Double>("rain"));
+        temperatureDestination.setCellValueFactory(new PropertyValueFactory<WeatherForecast,Double>("dayTemp"));
+
+        dateDestination.setCellValueFactory(new PropertyValueFactory<WeatherForecast, LocalDateTime>("localDateTime"));
 
         TableDestinationDay1.setItems(data);
 
@@ -99,7 +106,7 @@ public class MainViewController implements FxmlDefinedController, Initializable 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         weatherService= WeatherServiceFactory.createWeatherService();
-        testDisplayTable();
+       // testDisplayTable();
 
 
 

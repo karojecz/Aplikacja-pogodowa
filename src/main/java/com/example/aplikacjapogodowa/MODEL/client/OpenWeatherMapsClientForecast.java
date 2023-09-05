@@ -138,7 +138,7 @@ public class OpenWeatherMapsClientForecast implements WeatherClient{
 
     }
 
-    private static RootForecast getRoot(String cityName, String countryName) throws IOException {
+    public static RootForecast getRoot(String cityName, String countryName) throws IOException {
         OpenWeatherMapsClientCurrent openWeatherMapsClientCurrent=new OpenWeatherMapsClientCurrent();
         Weather weather=openWeatherMapsClientCurrent.getWeather(cityName,countryName);
         String lon=String.valueOf(openWeatherMapsClientCurrent.getCoord(cityName,countryName).lon);

@@ -3,6 +3,7 @@ package com.example.aplikacjapogodowa.MODEL;
 import com.example.aplikacjapogodowa.MODEL.openWeatherMapsFeaturesForecast.*;
 import com.example.aplikacjapogodowa.MODEL.openWeatherMapsFeaturesForecast.Weather;
 
+import java.time.*;
 import java.util.ArrayList;
 
 public class WeatherForecast {
@@ -30,6 +31,9 @@ public class WeatherForecast {
 
     private Daily daily;
 
+    private LocalDateTime localDateTime;
+    private double dayTemp=15;
+
 
 
     public WeatherForecast(int dt, int sunrise, int sunset, int moonrise, int moonset, double moon_phase, String summary, Temp temp, FeelsLike feels_like, int pressure, int humidity, double dew_point, double wind_speed, int wind_deg, double wind_gust, ArrayList<Weather> weather, int clouds, double pop, double uvi, double rain) {
@@ -53,12 +57,20 @@ public class WeatherForecast {
         this.pop = pop;
         this.uvi = uvi;
         this.rain = rain;
+        this.dayTemp=temp.day;
 
     }
-    public WeatherForecast(int dt, int pressure, double temp){
-        this.dt=dt;
-        this.pressure=pressure;
-        this.temp.day=temp;
+
+
+    public LocalDateTime getLocalDateTime() {
+        Instant instant = Instant.ofEpochSecond( dt );
+        localDateTime =LocalDateTime.ofInstant(instant,ZoneId.systemDefault());
+        return localDateTime;
+    }
+
+    public double getDayTemp() {
+        dayTemp=temp.day;
+        return dayTemp;
     }
 
     public int getDt() {
@@ -89,8 +101,8 @@ public class WeatherForecast {
         return summary;
     }
 
-    public Temp getTemp() {
-        return temp;
+    public double getTemp() {
+        return temp.day;
     }
 
     public FeelsLike getFeels_like() {
