@@ -28,13 +28,15 @@ public class MainViewController implements FxmlDefinedController, Initializable 
     @FXML
     private TableColumn<WeatherForecast, LocalDateTime> dateDestination;
     @FXML
-    private TableColumn<?, ?> descriptionDestination;
+    private TableColumn<WeatherForecast, String> descriptionDestination;
 
     @FXML
-    private TableColumn<?, ?> pressureDestination;
+    private TableColumn<WeatherForecast, Integer> pressureDestination;
 
     @FXML
-    private TableColumn<?, ?> rainDestination;
+    private TableColumn<WeatherForecast, Double> rainDestination;
+    @FXML
+    private TableColumn<WeatherForecast, Double> windSpeedDestination;
 
 
 
@@ -92,6 +94,10 @@ public class MainViewController implements FxmlDefinedController, Initializable 
         temperatureDestination.setCellValueFactory(new PropertyValueFactory<WeatherForecast,Double>("dayTemp"));
 
         dateDestination.setCellValueFactory(new PropertyValueFactory<WeatherForecast, LocalDateTime>("localDateTime"));
+        pressureDestination.setCellValueFactory(new PropertyValueFactory<WeatherForecast,Integer>("pressure"));
+        rainDestination.setCellValueFactory(new PropertyValueFactory<WeatherForecast, Double>("rain"));
+        windSpeedDestination.setCellValueFactory(new PropertyValueFactory<WeatherForecast,Double>("wind_speed"));
+        descriptionDestination.setCellValueFactory(new PropertyValueFactory<WeatherForecast, String>("description"));
 
         TableDestinationDay1.setItems(data);
 

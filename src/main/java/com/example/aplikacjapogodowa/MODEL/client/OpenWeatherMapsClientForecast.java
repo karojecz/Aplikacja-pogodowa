@@ -44,6 +44,7 @@ public class OpenWeatherMapsClientForecast implements WeatherClient{
 
             RootForecast root = om.readValue(reader, RootForecast.class);
             System.out.println(root);
+
             System.out.println("first day: "+root.daily.get(0));
             System.out.println(root.daily.get(0).temp.day);
             double rain=0;

@@ -34,6 +34,8 @@ public class WeatherForecast {
     private LocalDateTime localDateTime;
     private double dayTemp=15;
 
+    private String description;
+
 
 
     public WeatherForecast(int dt, int sunrise, int sunset, int moonrise, int moonset, double moon_phase, String summary, Temp temp, FeelsLike feels_like, int pressure, int humidity, double dew_point, double wind_speed, int wind_deg, double wind_gust, ArrayList<Weather> weather, int clouds, double pop, double uvi, double rain) {
@@ -61,6 +63,10 @@ public class WeatherForecast {
 
     }
 
+    public String getDescription() {
+        description=String.valueOf(weather.get(0).description);
+        return description;
+    }
 
     public LocalDateTime getLocalDateTime() {
         Instant instant = Instant.ofEpochSecond( dt );
