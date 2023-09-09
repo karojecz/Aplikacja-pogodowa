@@ -21,7 +21,7 @@ public class Launcher extends Application {
        FXMLLoader fxmlLoader = new FXMLLoader(Launcher.class.getResource(mainViewController.getFxmlName()));
         fxmlLoader.setController(mainViewController);
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Hello!");
+        stage.setTitle("Weather Forecast");
         stage.setScene(scene);
         stage.show();
 

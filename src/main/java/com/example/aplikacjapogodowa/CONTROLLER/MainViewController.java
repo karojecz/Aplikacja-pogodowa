@@ -41,6 +41,14 @@ public class MainViewController implements FxmlDefinedController, Initializable 
     @FXML
     private TextField countryName;
 
+    @FXML
+    private Label destinationTableName;
+
+    @FXML
+    private Label originTableName;
+
+    @FXML
+    private Label textFieldErrorLabel;
 
 
     @FXML
@@ -90,15 +98,42 @@ public class MainViewController implements FxmlDefinedController, Initializable 
     @FXML
     void CheckWeatherAction() throws IOException {
 
-        String cityName=this.cityName.getText();
-        String countryName=this.countryName.getText();
 
-        String cityNameDestination=this.cityNameDestination.getText();
-        String countryNameDestinatiom=this.countryNameDestination.getText();
 
-        ObservableList<WeatherForecast> weather=weatherService.getForecastWeather(cityName,countryName);
-        ObservableList<WeatherForecast> weaterDestination=weatherService.getForecastWeather(cityNameDestination,countryNameDestinatiom);
-        testDisplayTable(weather,weaterDestination);
+        try{
+            String cityName=this.cityName.getText();
+            String countryName=this.countryName.getText();
+
+            String cityNameDestination=this.cityNameDestination.getText();
+            String countryNameDestinatiom=this.countryNameDestination.getText();
+
+            if(cityName.isEmpty() || countryName.isEmpty() || cityNameDestination.isEmpty() || countryNameDestinatiom.isEmpty()) {
+                textFieldErrorLabel.setText("You need to fill all city and country fileds to get weather");
+                textFieldErrorLabel.setVisible(true);
+            }else {
+
+                destinationTableName.setVisible(true);
+                originTableName.setVisible(true);
+                TableDestination.setVisible(true);
+                TableOrigin.setVisible(true);
+                textFieldErrorLabel.setVisible(false);
+                ObservableList<WeatherForecast> weather=weatherService.getForecastWeather(cityName,countryName);
+                ObservableList<WeatherForecast> weaterDestination=weatherService.getForecastWeather(cityNameDestination,countryNameDestinatiom);
+                testDisplayTable(weather,weaterDestination);
+
+            }
+
+
+        }catch (Exception e){
+            e.printStackTrace();
+
+
+            }
+
+
+
+
+
 
     }
 
@@ -153,7 +188,11 @@ public class MainViewController implements FxmlDefinedController, Initializable 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         weatherService= WeatherServiceFactory.createWeatherService();
-       // testDisplayTable();
+        destinationTableName.setVisible(false);
+        originTableName.setVisible(false);
+        TableOrigin.setVisible(false);
+        TableDestination.setVisible(false);
+        textFieldErrorLabel.setVisible(false);
 
 
 
