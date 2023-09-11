@@ -24,7 +24,7 @@ public class OpenWeatherMapsClientCurrent implements WeatherClient {
 
     @Override
     public Weather getWeather(String cityname, String countryName) throws IOException {
-
+        try {
         String city=cityname;
         String APIkey= Config.getAPIkey();
         URL endpointTEST=new URL("http://api.openweathermap.org");
@@ -32,7 +32,7 @@ public class OpenWeatherMapsClientCurrent implements WeatherClient {
         URL url=new URL(endpointTEST,"/data/2.5/weather?q="+city+","+countryCode+"&appid="+APIkey+"&units=metric");
         InputStreamReader reader=new InputStreamReader(url.openStream());
 
-        try {
+
             ObjectMapper om = new ObjectMapper();
             Root root = om.readValue(reader, Root.class);
            // System.out.println(root);
@@ -50,7 +50,8 @@ public class OpenWeatherMapsClientCurrent implements WeatherClient {
 
             return new Weather(cityname,root.main.temp,rain,windSpeed,localDate);
         } catch (Exception e) {
-            e.printStackTrace();
+         //   e.printStackTrace();
+            System.out.println("openWeatherMapsCurrent getWeather-URL ERROR");
         }
 
        return null;
