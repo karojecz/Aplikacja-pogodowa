@@ -7,10 +7,12 @@ import com.example.aplikacjapogodowa.MODEL.WeatherForecast;
 import com.example.aplikacjapogodowa.MODEL.WeatherService;
 import com.example.aplikacjapogodowa.MODEL.openWeatherMapsFeaturesForecast.Daily;
 import com.example.aplikacjapogodowa.MODEL.openWeatherMapsFeaturesForecast.RootForecast;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.ConnectException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.security.Timestamp;
@@ -53,7 +55,6 @@ public class OpenWeatherMapsClientForecast implements WeatherClient{
             int timeInMili =root.daily.get(0).dt;
 
             Instant instant = Instant.ofEpochMilli((timeInMili*1000L));
-
             ZoneId zone = ZoneId.of("America/Edmonton");
             LocalDate date = LocalDate.ofInstant(instant, zone);
 
@@ -63,42 +64,9 @@ public class OpenWeatherMapsClientForecast implements WeatherClient{
             e.printStackTrace();
         }
 
-
-
-
-
         return null;
     }
-    public void testForecastAPI() throws IOException {
 
-        OpenWeatherMapsClientCurrent openWeatherMapsClientCurrent=new OpenWeatherMapsClientCurrent();
-        String ciytyName="london";
-        String countryName="uk";
-
-        String lon=String.valueOf(openWeatherMapsClientCurrent.getCoord(ciytyName,countryName).lon);
-        String lat=String.valueOf(openWeatherMapsClientCurrent.getCoord(ciytyName,countryName).lat);
-
-
-        String APIkey= Config.getAPIkey();
-        URL endpointTEST=new URL("http://api.openweathermap.org");
-        URL url=new URL(endpointTEST,"/data/3.0/onecall?lat="+lat+"&lon="+lon+"&appid="+APIkey+"&units=metric");
-
-        InputStreamReader reader=new InputStreamReader(url.openStream());
-
-
-        try {
-            ObjectMapper om = new ObjectMapper();
-          //  System.out.println("url check "+om.readTree(url));
-            RootForecast root = om.readValue(reader, RootForecast.class);
-          //  System.out.println(root);
-          //  System.out.println("first day: "+root.daily.get(0));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-
-
-    }
     public ArrayList<WeatherForecast> getWeatherForcast(String cityName, String countryName) throws IOException {
         RootForecast rootForecast=getRoot(cityName,countryName);
         ArrayList<Daily> dailies=rootForecast.daily;
@@ -140,30 +108,33 @@ public class OpenWeatherMapsClientForecast implements WeatherClient{
     }
 
     public static RootForecast getRoot(String cityName, String countryName) throws IOException {
-        OpenWeatherMapsClientCurrent openWeatherMapsClientCurrent=new OpenWeatherMapsClientCurrent();
-        Weather weather=openWeatherMapsClientCurrent.getWeather(cityName,countryName);
-        String lon=String.valueOf(openWeatherMapsClientCurrent.getCoord(cityName,countryName).lon);
-        String lat=String.valueOf(openWeatherMapsClientCurrent.getCoord(cityName,countryName).lat);
-
-
-        String APIkey= Config.getAPIkey();
-        URL endpointTEST=new URL("http://api.openweathermap.org");
-        URL url=new URL(endpointTEST,"/data/3.0/onecall?lat="+lat+"&lon="+lon+"&appid="+APIkey+"&units=metric");
-
-        InputStreamReader reader=new InputStreamReader(url.openStream());
-
-
         try {
+            OpenWeatherMapsClientCurrent openWeatherMapsClientCurrent = new OpenWeatherMapsClientCurrent();
+            Weather weather = openWeatherMapsClientCurrent.getWeather(cityName, countryName);
+            String lon = String.valueOf(openWeatherMapsClientCurrent.getCoord(cityName, countryName).lon);
+            String lat = String.valueOf(openWeatherMapsClientCurrent.getCoord(cityName, countryName).lat);
+
+
+            String APIkey = Config.getAPIkey();
+            URL endpointTEST = new URL("http://api.openweathermap.org");
+            URL url = new URL(endpointTEST, "/data/3.0/onecall?lat=" + lat + "&lon=" + lon + "&appid=" + APIkey + "&units=metric");
+
+            InputStreamReader reader = new InputStreamReader(url.openStream());
+
+
             ObjectMapper om = new ObjectMapper();
+            System.out.println(om);
 
             RootForecast root = om.readValue(reader, RootForecast.class);
             System.out.println(root);
             return root;
 
 
-
-
-        } catch (Exception e) {
+        } catch (MalformedURLException e){
+            e.printStackTrace();
+        }catch (ConnectException e){
+            e.printStackTrace();
+        }catch (JsonMappingException e){
             e.printStackTrace();
         }
 

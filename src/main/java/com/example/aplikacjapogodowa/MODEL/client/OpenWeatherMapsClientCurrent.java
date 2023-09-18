@@ -35,7 +35,7 @@ public class OpenWeatherMapsClientCurrent implements WeatherClient {
 
             ObjectMapper om = new ObjectMapper();
             Root root = om.readValue(reader, Root.class);
-           // System.out.println(root);
+
             double rain=0;
             double windSpeed=0;
             ZoneId zone = ZoneId.of("America/Edmonton");
@@ -56,25 +56,7 @@ public class OpenWeatherMapsClientCurrent implements WeatherClient {
 
        return null;
     }
-    public void testApi() throws IOException {
-        String city="czaplinek";
-        String APIkey= Config.getAPIkey2();
-        URL endpointTEST=new URL("http://api.openweathermap.org");
-        String countryCode="pl";
-        URL url=new URL(endpointTEST,"/data/2.5/weather?q="+city+","+countryCode+"&APPID="+APIkey+"&units=metric");
-        InputStreamReader reader=new InputStreamReader(url.openStream());
 
-        try {
-            ObjectMapper om = new ObjectMapper();
-            Root root = om.readValue(reader, Root.class);
-           // System.out.println(root);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-
-
-    }
 
     public Coord getCoord(String cityName, String countrName) throws IOException {
         String city=cityName;
@@ -87,7 +69,7 @@ public class OpenWeatherMapsClientCurrent implements WeatherClient {
         try {
             ObjectMapper om = new ObjectMapper();
             Root root = om.readValue(reader, Root.class);
-            //System.out.println(root);
+
             return root.coord;
         } catch (Exception e) {
             e.printStackTrace();

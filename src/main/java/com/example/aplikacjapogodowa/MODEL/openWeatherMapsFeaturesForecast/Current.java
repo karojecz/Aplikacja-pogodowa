@@ -17,8 +17,11 @@ public class Current {
     public double wind_speed;
     public int wind_deg;
     public double wind_gust;
+
     public ArrayList<Weather> weather;
-    public double rain;
+
+    //public double rain;
+    public Rain rain;
 
     @Override
     public String toString() {
@@ -38,6 +41,7 @@ public class Current {
                 ", wind_deg=" + wind_deg +
                 ", wind_gust=" + wind_gust +
                 ", weather=" + weather +
+                ", rain=" + rain +
                 '}';
     }
 }

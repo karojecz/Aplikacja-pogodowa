@@ -4,6 +4,7 @@ package com.example.aplikacjapogodowa.CONTROLLER;
 import com.example.aplikacjapogodowa.MODEL.WeatherForecast;
 import com.example.aplikacjapogodowa.MODEL.WeatherService;
 import com.example.aplikacjapogodowa.MODEL.WeatherServiceFactory;
+
 import com.neovisionaries.i18n.CountryCode;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -98,7 +99,7 @@ public class MainViewController implements FxmlDefinedController, Initializable 
 
 
         try {
-           // String code =  CountryCode.findByName("Germany").get(0).name();
+            String code =  CountryCode.findByName("Germany").get(0).name();
             System.out.println(code);
             String cityName = this.cityName.getText();
             String countryName = this.countryName.getText();
@@ -112,9 +113,9 @@ public class MainViewController implements FxmlDefinedController, Initializable 
             } else {
 
                 destinationTableName.setVisible(true);
-                destinationTableName.setText("Weather in " + cityNameDestination.substring(0, 1).toUpperCase() + cityNameDestination.substring(1));
+                destinationTableName.setText("Weather in " + cityNameDestination.substring(0, 1).toUpperCase() + cityNameDestination.substring(1).toLowerCase());
                 originTableName.setVisible(true);
-                originTableName.setText("Weather in " + cityName.substring(0, 1).toUpperCase() + cityName.substring(1));
+                originTableName.setText("Weather in " + cityName.substring(0, 1).toUpperCase() + cityName.substring(1).toLowerCase());
                 TableDestination.setVisible(true);
                 TableOrigin.setVisible(true);
                 textFieldErrorLabel.setVisible(false);
@@ -155,10 +156,7 @@ public class MainViewController implements FxmlDefinedController, Initializable 
 
     }
 
-    private void displayWeatherFor5days(ArrayList<WeatherForecast> weatherForecasts) {
 
-        // System.out.println(weatherForecasts.get(0).getTemp().day);
-    }
 
 
     @Override

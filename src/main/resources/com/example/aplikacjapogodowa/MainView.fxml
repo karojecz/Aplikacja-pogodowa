@@ -19,7 +19,7 @@
             <TextField fx:id="countryName" layoutX="84.0" layoutY="83.0" promptText="Your city" />
             <TextField fx:id="cityNameDestination" layoutX="340.0" layoutY="43.0" promptText="Your destination" />
             <TextField fx:id="countryNameDestination" layoutX="340.0" layoutY="83.0" promptText="Your destination country" />
-            <TableView fx:id="TableOrigin" layoutX="12.0" layoutY="235.0" prefHeight="272.0" prefWidth="498.0">
+            <TableView fx:id="TableDestination" layoutX="12.0" layoutY="235.0" prefHeight="272.0" prefWidth="498.0">
               <columns>
                 <TableColumn fx:id="dateOrigin" prefWidth="81.0" text="date" />
                 <TableColumn fx:id="temperatureOrigin" prefWidth="51.0" text="temp" />
@@ -29,7 +29,7 @@
                   <TableColumn fx:id="descriptionOrigin" prefWidth="144.0" text="description" />
               </columns>
             </TableView>
-            <TableView fx:id="TableDestination" editable="true" layoutX="527.0" layoutY="235.0" prefHeight="271.0" prefWidth="504.0">
+            <TableView fx:id="TableOrigin" editable="true" layoutX="527.0" layoutY="235.0" prefHeight="271.0" prefWidth="504.0">
                <columns>
                   <TableColumn fx:id="dateDestination" prefWidth="81.0" text="date" />
                   <TableColumn fx:id="temperatureDestination" prefWidth="51.0" text="temp" />
