@@ -1,5 +1,6 @@
 package com.example.aplikacjapogodowa.MODEL;
 
+import com.example.aplikacjapogodowa.MODEL.client.OpenWeatherMapsClientCurrent;
 import com.example.aplikacjapogodowa.MODEL.client.OpenWeatherMapsClientForecast;
 import com.example.aplikacjapogodowa.MODEL.client.WeatherClient;
 import com.example.aplikacjapogodowa.MODEL.openWeatherMapsFeaturesForecast.Daily;
@@ -22,9 +23,13 @@ public class WeatherService {
     }
     public ObservableList<WeatherForecast> getForecastWeather(String cityName, String countryName) throws IOException {
 
-        RootForecast rootForecast=getRoot(cityName,countryName);
-        ArrayList<Daily> dailies=rootForecast.daily;
-        ArrayList<WeatherForecast> weatherForecasts=new ArrayList<>();
+        //RootForecast rootForecast=getRoot(cityName,countryName);
+       // ArrayList<Daily> dailies=rootForecast.daily;
+        //ArrayList<WeatherForecast> weatherForecasts=new ArrayList<>();
+        OpenWeatherMapsClientForecast openWeatherMapsClientForecast=new OpenWeatherMapsClientForecast();
+        ArrayList<WeatherForecast> weatherForecasts=openWeatherMapsClientForecast.getWeatherForcast(cityName, countryName);
+
+        /*
         for(int i=0; i<rootForecast.daily.size(); i++){
             WeatherForecast weatherForecast=new WeatherForecast(
                     rootForecast.daily.get(i).dt,
@@ -53,6 +58,8 @@ public class WeatherService {
 
 
         }
+
+         */
         ObservableList<WeatherForecast> data =
                 FXCollections.observableArrayList(
                        weatherForecasts
