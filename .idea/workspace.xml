@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="510f8960-cd30-4ae3-bd04-5dd2d5109ea8" name="Changes" comment="add new labels to view">
+    <list default="true" id="510f8960-cd30-4ae3-bd04-5dd2d5109ea8" name="Changes" comment="remove display country code function in checkWeatherAction MainViewController">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/CONTROLLER/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/CONTROLLER/MainViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/Launcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/Weather.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/Weather.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/WeatherServiceFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/WeatherServiceFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/client/OpenWeatherMapsClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/client/OpenWeatherMapsClientCurrent.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +24,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="forecast_weather_client" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -90,6 +85,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Launcher" />
         <item itemvalue="Application.Launcher" />
       </list>
     </recent_temporary>
