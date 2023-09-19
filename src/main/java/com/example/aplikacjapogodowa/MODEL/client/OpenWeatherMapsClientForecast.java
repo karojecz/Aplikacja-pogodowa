@@ -23,89 +23,8 @@ import java.util.ArrayList;
 import java.util.Date;
 
 
-public class OpenWeatherMapsClientForecast implements WeatherClient{
+public class OpenWeatherMapsClientForecast implements WeatherForecastClient{
 
-    @Override
-    public Weather getWeather(String cityName, String countryName) throws IOException {
-
-        OpenWeatherMapsClientCurrent openWeatherMapsClientCurrent=new OpenWeatherMapsClientCurrent();
-        Weather weather=openWeatherMapsClientCurrent.getWeather(cityName,countryName);
-        String lon=String.valueOf(openWeatherMapsClientCurrent.getCoord(cityName,countryName).lon);
-        String lat=String.valueOf(openWeatherMapsClientCurrent.getCoord(cityName,countryName).lat);
-
-
-        String APIkey= Config.getAPIkey();
-        URL endpointTEST=new URL("http://api.openweathermap.org");
-        URL url=new URL(endpointTEST,"/data/3.0/onecall?lat="+lat+"&lon="+lon+"&appid="+APIkey+"&units=metric");
-
-        InputStreamReader reader=new InputStreamReader(url.openStream());
-
-
-        try {
-            ObjectMapper om = new ObjectMapper();
-
-            RootForecast root = om.readValue(reader, RootForecast.class);
-            System.out.println(root);
-
-            System.out.println("first day: "+root.daily.get(0));
-            System.out.println(root.daily.get(0).temp.day);
-            double rain=0;
-
-
-            int timeInMili =root.daily.get(0).dt;
-
-            Instant instant = Instant.ofEpochMilli((timeInMili*1000L));
-            ZoneId zone = ZoneId.of("America/Edmonton");
-            LocalDate date = LocalDate.ofInstant(instant, zone);
-
-
-            return new Weather(cityName,root.daily.get(0).temp.day,root.daily.get(0).rain,root.daily.get(0).wind_speed, date);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return null;
-    }
-
-    public ArrayList<WeatherForecast> getWeatherForcast(String cityName, String countryName) throws IOException {
-        RootForecast rootForecast=getRoot(cityName,countryName);
-        ArrayList<Daily> dailies=rootForecast.daily;
-       ArrayList<WeatherForecast> weatherForecasts=new ArrayList<>();
-        for(int i=0; i<rootForecast.daily.size(); i++){
-            WeatherForecast weatherForecast=new WeatherForecast(
-                    rootForecast.daily.get(i).dt,
-                    rootForecast.daily.get(i).sunrise,
-                    rootForecast.daily.get(i).sunset,
-                    rootForecast.daily.get(i).moonrise,
-                    rootForecast.daily.get(i).moonset,
-                    rootForecast.daily.get(i).moon_phase,
-                    rootForecast.daily.get(i).summary,
-                    rootForecast.daily.get(i).temp,
-                    rootForecast.daily.get(i).feels_like,
-                    rootForecast.daily.get(i).pressure,
-                    rootForecast.daily.get(i).humidity,
-                    rootForecast.daily.get(i).dew_point,
-                    rootForecast.daily.get(i).wind_speed,
-                    rootForecast.daily.get(i).wind_deg,
-                    rootForecast.daily.get(i).wind_gust,
-                    rootForecast.daily.get(i).weather,
-                    rootForecast.daily.get(i).clouds,
-                    rootForecast.daily.get(i).pop,
-                    rootForecast.daily.get(i).uvi,
-                    rootForecast.daily.get(i).rain
-
-            );
-            weatherForecasts.add(weatherForecast);
-
-
-        }
-
-        return weatherForecasts;
-
-
-
-
-    }
 
     public static RootForecast getRoot(String cityName, String countryName) throws IOException {
         try {
@@ -138,10 +57,42 @@ public class OpenWeatherMapsClientForecast implements WeatherClient{
             e.printStackTrace();
         }
 
-
-
-
-
         return null;
+    }
+    @Override
+    public ArrayList<WeatherForecast> getWeatherForecast(String cityName, String countryName) throws IOException {
+        RootForecast rootForecast=getRoot(cityName,countryName);
+        ArrayList<Daily> dailies=rootForecast.daily;
+        ArrayList<WeatherForecast> weatherForecasts=new ArrayList<>();
+        for(int i=0; i<rootForecast.daily.size(); i++){
+            WeatherForecast weatherForecast=new WeatherForecast(
+                    rootForecast.daily.get(i).dt,
+                    rootForecast.daily.get(i).sunrise,
+                    rootForecast.daily.get(i).sunset,
+                    rootForecast.daily.get(i).moonrise,
+                    rootForecast.daily.get(i).moonset,
+                    rootForecast.daily.get(i).moon_phase,
+                    rootForecast.daily.get(i).summary,
+                    rootForecast.daily.get(i).temp,
+                    rootForecast.daily.get(i).feels_like,
+                    rootForecast.daily.get(i).pressure,
+                    rootForecast.daily.get(i).humidity,
+                    rootForecast.daily.get(i).dew_point,
+                    rootForecast.daily.get(i).wind_speed,
+                    rootForecast.daily.get(i).wind_deg,
+                    rootForecast.daily.get(i).wind_gust,
+                    rootForecast.daily.get(i).weather,
+                    rootForecast.daily.get(i).clouds,
+                    rootForecast.daily.get(i).pop,
+                    rootForecast.daily.get(i).uvi,
+                    rootForecast.daily.get(i).rain
+
+            );
+            weatherForecasts.add(weatherForecast);
+
+
+        }
+
+        return weatherForecasts;
     }
 }

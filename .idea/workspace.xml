@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="510f8960-cd30-4ae3-bd04-5dd2d5109ea8" name="Changes" comment="remove test metodhs from MainViewCotroler and WeatherForecastClient">
+    <list default="true" id="510f8960-cd30-4ae3-bd04-5dd2d5109ea8" name="Changes" comment="refactor getForecastWeather method in weatherService class">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/WeatherService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/WeatherService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/client/OpenWeatherMapsClientForecast.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/client/OpenWeatherMapsClientForecast.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/client/WeatherForecastClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/client/WeatherForecastClient.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -241,7 +244,14 @@
       <option name="project" value="LOCAL" />
       <updated>1695064747961</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="refactor getForecastWeather method in weatherService class">
+      <created>1695065100765</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1695065100765</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -289,6 +299,7 @@
     <MESSAGE value="split origin and destination tables" />
     <MESSAGE value="add error label for text fields" />
     <MESSAGE value="remove test metodhs from MainViewCotroler and WeatherForecastClient" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove test metodhs from MainViewCotroler and WeatherForecastClient" />
+    <MESSAGE value="refactor getForecastWeather method in weatherService class" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor getForecastWeather method in weatherService class" />
   </component>
 </project>

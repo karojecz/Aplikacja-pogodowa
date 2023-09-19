@@ -99,8 +99,7 @@ public class MainViewController implements FxmlDefinedController, Initializable 
 
 
         try {
-            String code =  CountryCode.findByName("Germany").get(0).name();
-            System.out.println(code);
+
             String cityName = this.cityName.getText();
             String countryName = this.countryName.getText();
 
