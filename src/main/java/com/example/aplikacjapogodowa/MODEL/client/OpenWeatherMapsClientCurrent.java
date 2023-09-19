@@ -18,46 +18,6 @@ import java.time.ZoneId;
 
 public class OpenWeatherMapsClientCurrent  {
 
-
-
-
-
-
-    public Weather getWeather(String cityname, String countryName) throws IOException {
-        try {
-        String city=cityname;
-        String APIkey= Config.getAPIkey();
-        URL endpointTEST=new URL("http://api.openweathermap.org");
-        String countryCode=countryName;
-        URL url=new URL(endpointTEST,"/data/2.5/weather?q="+city+","+countryCode+"&appid="+APIkey+"&units=metric");
-        InputStreamReader reader=new InputStreamReader(url.openStream());
-
-
-            ObjectMapper om = new ObjectMapper();
-            Root root = om.readValue(reader, Root.class);
-
-            double rain=0;
-            double windSpeed=0;
-            ZoneId zone = ZoneId.of("America/Edmonton");
-           LocalDate localDate= LocalDate.ofEpochDay(root.dt);
-
-            if(root.wind!=null){
-                windSpeed=root.wind.speed;
-            }
-            if(root.rain!=null){
-                rain=root.rain._1h;
-            }
-
-            return new Weather(cityname,root.main.temp,rain,windSpeed,localDate);
-        } catch (Exception e) {
-         //   e.printStackTrace();
-            System.out.println("openWeatherMapsCurrent getWeather-URL ERROR");
-        }
-
-       return null;
-    }
-
-
     public Coord getCoord(String cityName, String countrName) throws IOException {
         String city=cityName;
         String APIkey= Config.getAPIkey2();

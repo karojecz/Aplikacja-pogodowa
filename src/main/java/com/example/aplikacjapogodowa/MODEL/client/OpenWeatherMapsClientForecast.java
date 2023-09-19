@@ -29,7 +29,7 @@ public class OpenWeatherMapsClientForecast implements WeatherForecastClient{
     public static RootForecast getRoot(String cityName, String countryName) throws IOException {
         try {
             OpenWeatherMapsClientCurrent openWeatherMapsClientCurrent = new OpenWeatherMapsClientCurrent();
-            Weather weather = openWeatherMapsClientCurrent.getWeather(cityName, countryName);
+
             String lon = String.valueOf(openWeatherMapsClientCurrent.getCoord(cityName, countryName).lon);
             String lat = String.valueOf(openWeatherMapsClientCurrent.getCoord(cityName, countryName).lat);
 
