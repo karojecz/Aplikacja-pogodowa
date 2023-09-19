@@ -7,6 +7,8 @@ module com.example.aplikacjapogodowa {
     requires com.fasterxml.jackson.annotation;
     requires com.fasterxml.jackson.core;
     requires com.fasterxml.jackson.databind;
+    requires jtransc.annotations;
+    requires nv.i18n;
 
 
 
@@ -16,6 +18,7 @@ module com.example.aplikacjapogodowa {
     opens com.example.aplikacjapogodowa.VIEW;
     opens com.example.aplikacjapogodowa.CONTROLLER;
     opens com.example.aplikacjapogodowa.MODEL;
-    opens com.example.aplikacjapogodowa.MODEL.openWeatherMapsFeatures;
+    opens com.example.aplikacjapogodowa.MODEL.openWeatherMapsFeaturesCurrent;
+    opens  com.example.aplikacjapogodowa.MODEL.openWeatherMapsFeaturesForecast;
     exports com.example.aplikacjapogodowa;
 }

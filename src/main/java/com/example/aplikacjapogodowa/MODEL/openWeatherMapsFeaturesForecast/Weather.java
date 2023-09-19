@@ -1,6 +1,6 @@
-package com.example.aplikacjapogodowa.MODEL.openWeatherMapsFeatures;
+package com.example.aplikacjapogodowa.MODEL.openWeatherMapsFeaturesForecast;
 
-public class Weather{
+public class Weather {
     public int id;
     public String main;
     public String description;

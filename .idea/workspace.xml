@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="510f8960-cd30-4ae3-bd04-5dd2d5109ea8" name="Changes" comment="remove display country code function in checkWeatherAction MainViewController">
+    <list default="true" id="510f8960-cd30-4ae3-bd04-5dd2d5109ea8" name="Changes" comment="refactor getForecastWeather method in weatherService class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/WeatherService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/WeatherService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/client/OpenWeatherMapsClientForecast.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/client/OpenWeatherMapsClientForecast.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/client/WeatherForecastClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/MODEL/client/WeatherForecastClient.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,15 +19,18 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
+  </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="Weather_client" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="forecast_weather_client" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -85,7 +91,6 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Launcher" />
         <item itemvalue="Application.Launcher" />
       </list>
     </recent_temporary>
@@ -162,7 +167,91 @@
       <option name="project" value="LOCAL" />
       <updated>1691744315947</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="add new class OpenWeatherMapsClientForecast">
+      <created>1691775134109</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1691775134109</updated>
+    </task>
+    <task id="LOCAL-00011" summary="add package openWeatherMapsFeaturesFcorecast">
+      <created>1691779213579</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1691779213579</updated>
+    </task>
+    <task id="LOCAL-00012" summary="add to string metod to RootForecast">
+      <created>1691821508379</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1691821508379</updated>
+    </task>
+    <task id="LOCAL-00013" summary="add getCorrds method to forecast">
+      <created>1692122127982</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1692122127982</updated>
+    </task>
+    <task id="LOCAL-00014" summary="add date to weather constructor">
+      <created>1692434609380</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1692434609380</updated>
+    </task>
+    <task id="LOCAL-00015" summary="add date to weather model">
+      <created>1692631306818</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1692631306818</updated>
+    </task>
+    <task id="LOCAL-00016" summary="add new columns to tableview">
+      <created>1693939107843</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1693939107843</updated>
+    </task>
+    <task id="LOCAL-00017" summary="add descrition to tableview">
+      <created>1694012875367</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1694012875367</updated>
+    </task>
+    <task id="LOCAL-00018" summary="split origin and destination tables">
+      <created>1694272277035</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1694272277035</updated>
+    </task>
+    <task id="LOCAL-00019" summary="add error label for text fields">
+      <created>1694280984601</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1694280984601</updated>
+    </task>
+    <task id="LOCAL-00020" summary="remove test metodhs from MainViewCotroler and WeatherForecastClient">
+      <created>1695064747961</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1695064747961</updated>
+    </task>
+    <task id="LOCAL-00021" summary="refactor getForecastWeather method in weatherService class">
+      <created>1695065100765</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1695065100765</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -176,7 +265,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="Weather_client" />
+                        <option value="forecast_weather_client" />
                       </list>
                     </value>
                   </entry>
@@ -199,6 +288,18 @@
     <MESSAGE value="create openweathermaps API CLIENT-TEST" />
     <MESSAGE value="fix api openweathermaps bug" />
     <MESSAGE value="add new labels to view" />
-    <option name="LAST_COMMIT_MESSAGE" value="add new labels to view" />
+    <MESSAGE value="add new class OpenWeatherMapsClientForecast" />
+    <MESSAGE value="add package openWeatherMapsFeaturesFcorecast" />
+    <MESSAGE value="add to string metod to RootForecast" />
+    <MESSAGE value="add getCorrds method to forecast" />
+    <MESSAGE value="add date to weather constructor" />
+    <MESSAGE value="add date to weather model" />
+    <MESSAGE value="add new columns to tableview" />
+    <MESSAGE value="add descrition to tableview" />
+    <MESSAGE value="split origin and destination tables" />
+    <MESSAGE value="add error label for text fields" />
+    <MESSAGE value="remove test metodhs from MainViewCotroler and WeatherForecastClient" />
+    <MESSAGE value="refactor getForecastWeather method in weatherService class" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor getForecastWeather method in weatherService class" />
   </component>
 </project>

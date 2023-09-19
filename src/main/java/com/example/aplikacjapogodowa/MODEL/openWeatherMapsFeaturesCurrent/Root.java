@@ -1,8 +1,6 @@
-package com.example.aplikacjapogodowa.MODEL.openWeatherMapsFeatures;
+package com.example.aplikacjapogodowa.MODEL.openWeatherMapsFeaturesCurrent;
 
 import java.util.ArrayList;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 
 
 public class Root{
