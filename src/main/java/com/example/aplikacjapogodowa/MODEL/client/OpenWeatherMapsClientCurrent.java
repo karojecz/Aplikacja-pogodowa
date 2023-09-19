@@ -16,13 +16,13 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 
 
-public class OpenWeatherMapsClientCurrent implements WeatherClient {
+public class OpenWeatherMapsClientCurrent  {
 
 
 
 
 
-    @Override
+
     public Weather getWeather(String cityname, String countryName) throws IOException {
         try {
         String city=cityname;
