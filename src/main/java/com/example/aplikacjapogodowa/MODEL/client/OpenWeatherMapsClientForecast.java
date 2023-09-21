@@ -5,6 +5,7 @@ import com.example.aplikacjapogodowa.MODEL.Weather;
 import com.example.aplikacjapogodowa.MODEL.WeatherCurrent;
 import com.example.aplikacjapogodowa.MODEL.WeatherForecast;
 import com.example.aplikacjapogodowa.MODEL.WeatherService;
+import com.example.aplikacjapogodowa.MODEL.openWeatherMapsFeaturesCurrent.Coord;
 import com.example.aplikacjapogodowa.MODEL.openWeatherMapsFeaturesForecast.Daily;
 import com.example.aplikacjapogodowa.MODEL.openWeatherMapsFeaturesForecast.RootForecast;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -30,8 +31,9 @@ public class OpenWeatherMapsClientForecast implements WeatherForecastClient{
         try {
             OpenWeatherMapsClientCurrent openWeatherMapsClientCurrent = new OpenWeatherMapsClientCurrent();
 
-            String lon = String.valueOf(openWeatherMapsClientCurrent.getCoord(cityName, countryName).lon);
-            String lat = String.valueOf(openWeatherMapsClientCurrent.getCoord(cityName, countryName).lat);
+            Coord coord= openWeatherMapsClientCurrent.getCoord(cityName,countryName);
+            String lon = String.valueOf(coord.lon);
+            String lat = String.valueOf(coord.lat);
 
 
             String APIkey = Config.getAPIkey();
