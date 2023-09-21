@@ -62,8 +62,12 @@ public class OpenWeatherMapsClientForecast implements WeatherForecastClient{
         return null;
     }
     @Override
-    public ArrayList<WeatherForecast> getWeatherForecast(String cityName, String countryName) throws IOException {
+    public Weather<RootForecast> getWeatherForecast(String cityName, String countryName) throws IOException {
         RootForecast rootForecast=getRoot(cityName,countryName);
+        Weather weather=new Weather<>(rootForecast);
+        return weather;
+        /*
+
         ArrayList<Daily> dailies=rootForecast.daily;
         ArrayList<WeatherForecast> weatherForecasts=new ArrayList<>();
         for(int i=0; i<rootForecast.daily.size(); i++){
@@ -96,5 +100,7 @@ public class OpenWeatherMapsClientForecast implements WeatherForecastClient{
         }
 
         return weatherForecasts;
+
+         */
     }
 }
