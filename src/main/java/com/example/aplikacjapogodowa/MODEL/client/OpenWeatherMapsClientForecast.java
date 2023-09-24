@@ -44,10 +44,10 @@ public class OpenWeatherMapsClientForecast implements WeatherForecastClient{
 
 
             ObjectMapper om = new ObjectMapper();
-            System.out.println(om);
+
 
             RootForecast root = om.readValue(reader, RootForecast.class);
-            System.out.println(root);
+
             return root;
 
 

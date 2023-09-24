@@ -8,33 +8,35 @@ import java.util.ArrayList;
 
 public class WeatherForecast {
 
-    private int dt;
-    private int sunrise;
-    private int sunset;
-    private int moonrise;
-    private int moonset;
-    private double moon_phase;
-    private String summary;
-    private Temp temp;
-    private FeelsLike feels_like;
-    private int pressure;
-    private int humidity;
-    private double dew_point;
-    private double wind_speed;
-    private int wind_deg;
-    private double wind_gust;
+    private final int dt;
+    private final int sunrise;
+    private final int sunset;
+    private final int moonrise;
+    private final int moonset;
+    private final double moon_phase;
+    private final String summary;
+    private final Temp temp;
+    private final FeelsLike feels_like;
+    private final int pressure;
+    private final int humidity;
+    private final double dew_point;
+    private final double wind_speed;
+    private final int wind_deg;
+    private final double wind_gust;
     private ArrayList<Weather> weather;
-    private int clouds;
-    private double pop;
-    private double uvi;
-    private double rain;
+    private final int clouds;
+    private final double pop;
+    private final double uvi;
+    private final double rain;
+    private final double  dayTemp;
 
     private Daily daily;
 
     private LocalDateTime localDateTime;
-    private double dayTemp=15;
 
-    private String description;
+
+    private  String description;
+
 
 
 
@@ -59,7 +61,8 @@ public class WeatherForecast {
         this.pop = pop;
         this.uvi = uvi;
         this.rain = rain;
-        this.dayTemp=temp.day;
+        this.dayTemp=this.temp.day;
+
 
     }
 
@@ -74,10 +77,7 @@ public class WeatherForecast {
         return localDateTime;
     }
 
-    public double getDayTemp() {
-        dayTemp=temp.day;
-        return dayTemp;
-    }
+
 
     public int getDt() {
         return dt;
@@ -162,4 +162,9 @@ public class WeatherForecast {
     public Daily getDaily() {
         return daily;
     }
+
+    public double getDayTemp() {
+        return dayTemp;
+    }
+
 }

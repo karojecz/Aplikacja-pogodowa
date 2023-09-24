@@ -24,7 +24,7 @@ public class OpenWeatherMapsClientCurrent {
         Locale inLocale = Locale.forLanguageTag("pl-PL");
         for (Locale l : Locale.getAvailableLocales()) {
             if (l.getDisplayCountry(inLocale).equals(name)) {
-                System.out.println(l.getDisplayCountry(outLocale));
+
                 englishName=l.getDisplayCountry(outLocale);
                 break;
             }
