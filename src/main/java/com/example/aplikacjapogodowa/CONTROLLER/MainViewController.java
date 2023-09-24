@@ -110,7 +110,7 @@ public class MainViewController implements FxmlDefinedController, Initializable 
                 textFieldErrorLabel.setText("You need to fill all city and country fileds to get weather");
                 textFieldErrorLabel.setVisible(true);
             } else {
-
+                try {
                 destinationTableName.setVisible(true);
                 destinationTableName.setText("Weather in " + cityNameDestination.substring(0, 1).toUpperCase() + cityNameDestination.substring(1).toLowerCase());
                 originTableName.setVisible(true);
@@ -118,11 +118,11 @@ public class MainViewController implements FxmlDefinedController, Initializable 
                 TableDestination.setVisible(true);
                 TableOrigin.setVisible(true);
                 textFieldErrorLabel.setVisible(false);
-                try {
+
                     ObservableList<WeatherForecast> weather = weatherService.getForecastWeather(cityName, countryName);
                     ObservableList<WeatherForecast> weaterDestination = weatherService.getForecastWeather(cityNameDestination, countryNameDestinatiom);
                     displayWeather(weather, weaterDestination);
-                } catch (FileNotFoundException e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                     textFieldErrorLabel.setText("city name or country code are wrong");
                     textFieldErrorLabel.setVisible(true);

@@ -1,7 +1,6 @@
 package com.example.aplikacjapogodowa.MODEL.client;
 
 import com.example.aplikacjapogodowa.Config;
-import com.example.aplikacjapogodowa.MODEL.Weather;
 
 import com.example.aplikacjapogodowa.MODEL.openWeatherMapsFeaturesCurrent.Coord;
 import com.example.aplikacjapogodowa.MODEL.openWeatherMapsFeaturesCurrent.Root;
@@ -15,28 +14,40 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.*;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.ZoneId;
+import java.util.Locale;
 
 
 public class OpenWeatherMapsClientCurrent {
+    private static String changeToEnglishName(String name){
+        String englishName=name;
+        Locale outLocale = Locale.forLanguageTag("en_GB");
+        Locale inLocale = Locale.forLanguageTag("pl-PL");
+        for (Locale l : Locale.getAvailableLocales()) {
+            if (l.getDisplayCountry(inLocale).equals(name)) {
+                System.out.println(l.getDisplayCountry(outLocale));
+                englishName=l.getDisplayCountry(outLocale);
+                break;
+            }
+        }
+        return englishName;
+    }
 
     public Coord getCoord(String cityName, String countryName) throws IOException {
 
-
+        try {
         String coutryUperCase= WordUtils.capitalizeFully(countryName);
 
+        String outputCountryName= changeToEnglishName(coutryUperCase);
 
 
 
-        String countryCode= CountryCode.findByName(coutryUperCase).get(0).name();
+        String countryCode= CountryCode.findByName(outputCountryName).get(0).name();
         String APIkey = Config.getAPIkey2();
         URL endpointTEST = new URL("http://api.openweathermap.org");
         URL url = new URL(endpointTEST, "/data/2.5/weather?q=" + cityName + "," + countryCode + "&APPID=" + APIkey + "&units=metric");
         InputStreamReader reader = new InputStreamReader(url.openStream());
 
-        try {
+
             ObjectMapper om = new ObjectMapper();
             Root root = om.readValue(reader, Root.class);
 
