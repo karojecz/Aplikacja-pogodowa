@@ -1,6 +1,7 @@
 package com.example.aplikacjapogodowa;
 
 import com.example.aplikacjapogodowa.CONTROLLER.MainViewController;
+import com.example.aplikacjapogodowa.MODEL.client.Geocoding;
 import com.example.aplikacjapogodowa.MODEL.client.OpenWeatherMapsClientCurrent;
 
 import com.example.aplikacjapogodowa.MODEL.client.OpenWeatherMapsClientForecast;
@@ -29,6 +30,8 @@ public class Launcher extends Application {
 
           // openWeatherMapsClient.testApi();
        OpenWeatherMapsClientForecast openWeatherMapsClientForecast=new OpenWeatherMapsClientForecast();
+       Geocoding tets=new Geocoding();
+        tets.geocodingTest("London","UK");
        //openWeatherMapsClientForecast.testForecastAPI();
 
 

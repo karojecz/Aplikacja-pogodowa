@@ -21,5 +21,7 @@ module com.example.aplikacjapogodowa {
     opens com.example.aplikacjapogodowa.MODEL;
     opens com.example.aplikacjapogodowa.MODEL.openWeatherMapsFeaturesCurrent;
     opens  com.example.aplikacjapogodowa.MODEL.openWeatherMapsFeaturesForecast;
+    opens com.example.aplikacjapogodowa.MODEL.geocodingFeatures;
     exports com.example.aplikacjapogodowa;
+    opens com.example.aplikacjapogodowa.MODEL.client;
 }
