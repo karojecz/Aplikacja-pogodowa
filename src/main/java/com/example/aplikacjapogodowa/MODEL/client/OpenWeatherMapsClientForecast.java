@@ -2,38 +2,34 @@ package com.example.aplikacjapogodowa.MODEL.client;
 
 import com.example.aplikacjapogodowa.Config;
 import com.example.aplikacjapogodowa.MODEL.Weather;
-import com.example.aplikacjapogodowa.MODEL.WeatherCurrent;
-import com.example.aplikacjapogodowa.MODEL.WeatherForecast;
-import com.example.aplikacjapogodowa.MODEL.WeatherService;
-import com.example.aplikacjapogodowa.MODEL.openWeatherMapsFeaturesCurrent.Coord;
-import com.example.aplikacjapogodowa.MODEL.openWeatherMapsFeaturesForecast.Daily;
+import com.example.aplikacjapogodowa.MODEL.geocodingFeatures.GeocodingRoot;
 import com.example.aplikacjapogodowa.MODEL.openWeatherMapsFeaturesForecast.RootForecast;
+import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.commons.lang3.text.WordUtils;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.ConnectException;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.security.Timestamp;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.ZoneId;
-import java.util.ArrayList;
-import java.util.Date;
 
 
 public class OpenWeatherMapsClientForecast implements WeatherForecastClient{
+
+
 
 
     public static RootForecast getRoot(String cityName, String countryName) throws IOException {
         try {
             OpenWeatherMapsClientCurrent openWeatherMapsClientCurrent = new OpenWeatherMapsClientCurrent();
 
-            Coord coord= openWeatherMapsClientCurrent.getCoord(cityName,countryName);
-            String lon = String.valueOf(coord.lon);
-            String lat = String.valueOf(coord.lat);
+            GeocodingRoot geocodingRoot=getGeocordingRoot(cityName);
+            double lat=geocodingRoot.lat;
+            double lon=geocodingRoot.lon;
+
 
 
             String APIkey = Config.getAPIkey();
@@ -68,4 +64,29 @@ public class OpenWeatherMapsClientForecast implements WeatherForecastClient{
         return weather;
 
     }
+    private static GeocodingRoot getGeocordingRoot(String cityName){
+        try {
+            String coutryUperCase= WordUtils.capitalizeFully(cityName);
+            String cityName2="London";
+
+            String APIkey = Config.getAPIkey2();
+
+            URL url=new URL("http://api.openweathermap.org/geo/1.0/direct?q="+cityName+"&limit=5&appid="+APIkey);
+            InputStreamReader reader = new InputStreamReader(url.openStream());
+
+            ObjectMapper om = new ObjectMapper();
+            GeocodingRoot[] root = om.readValue(reader, GeocodingRoot[].class);
+            System.out.println(root[0]);
+            return root[0];
+        } catch (MalformedURLException | ConnectException | JsonMappingException | FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (JsonParseException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return null;
+
+    }
+
 }

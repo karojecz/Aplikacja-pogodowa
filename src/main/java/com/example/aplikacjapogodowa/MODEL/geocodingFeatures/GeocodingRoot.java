@@ -1,7 +1,6 @@
 package com.example.aplikacjapogodowa.MODEL.geocodingFeatures;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Root {
+public class GeocodingRoot {
     public String name;
     public LocalNames local_names;
     public double lat;

@@ -1,12 +1,9 @@
 package com.example.aplikacjapogodowa.MODEL.client;
 
 import com.example.aplikacjapogodowa.Config;
-import com.example.aplikacjapogodowa.MODEL.geocodingFeatures.Root;
-import com.example.aplikacjapogodowa.MODEL.openWeatherMapsFeaturesCurrent.Coord;
-import com.example.aplikacjapogodowa.MODEL.openWeatherMapsFeaturesForecast.RootForecast;
+import com.example.aplikacjapogodowa.MODEL.geocodingFeatures.GeocodingRoot;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.neovisionaries.i18n.CountryCode;
 import org.apache.commons.lang3.text.WordUtils;
 
 import java.io.FileNotFoundException;
@@ -23,7 +20,7 @@ public class Geocoding {
             String coutryUperCase= WordUtils.capitalizeFully(countryName);
 
             //String outputCountryName= changeToEnglishName(coutryUperCase);
-            String cityName2="London";
+            String cityName2="Lisewo";
             String countryCode2="UK";
 
 
@@ -40,8 +37,11 @@ public class Geocoding {
             ObjectMapper om = new ObjectMapper();
 
            // Root root = om.readValue(reader, Root.class);
-            Root[] root = om.readValue(reader, Root[].class);
-            System.out.println(root[0]);
+            GeocodingRoot[] root = om.readValue(reader, GeocodingRoot[].class);
+            for(int i=0; i<root.length; i++){
+                System.out.println(i+" "+root[i]);
+            }
+
 
 
         } catch (MalformedURLException | ConnectException | JsonMappingException | FileNotFoundException e) {
