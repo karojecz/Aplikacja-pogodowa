@@ -2,7 +2,10 @@ package com.example.aplikacjapogodowa.MODEL.client;
 
 import com.example.aplikacjapogodowa.Config;
 import com.example.aplikacjapogodowa.MODEL.Weather;
+import com.example.aplikacjapogodowa.MODEL.Weather2;
+import com.example.aplikacjapogodowa.MODEL.WeatherForecast2;
 import com.example.aplikacjapogodowa.MODEL.geocodingFeatures.GeocodingRoot;
+import com.example.aplikacjapogodowa.MODEL.openWeatherMapsFeaturesForecast.Daily;
 import com.example.aplikacjapogodowa.MODEL.openWeatherMapsFeaturesForecast.RootForecast;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -15,9 +18,49 @@ import java.io.InputStreamReader;
 import java.net.ConnectException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.ArrayList;
+import java.util.Collection;
 
 
 public class OpenWeatherMapsClientForecast implements WeatherForecastClient{
+
+    public static Weather2 getWeather(){
+        return null;
+
+    }
+    public static LocalDateTime getLocalDateTime(int dt) {
+        Instant instant = Instant.ofEpochSecond( dt );
+        LocalDateTime localDateTime =LocalDateTime.ofInstant(instant, ZoneId.systemDefault());
+        return localDateTime;
+    }
+
+    public WeatherForecast2 getWeatherForecast2(String cityName, String countryName){
+        RootForecast rootForecast= null;
+        try {
+            rootForecast = getRoot(cityName,countryName);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        ArrayList<Daily> weatherForecastForFiveDays=getDailyWeatherArray(rootForecast);
+        Weather2 weather2;
+        Collection<Weather2> weather2s=new ArrayList<>();
+
+
+
+        for(Daily daily : weatherForecastForFiveDays){
+            weather2=new Weather2(cityName, daily.temp.day,daily.pressure,daily.rain,daily.wind_speed,daily.weather.get(0).description,getLocalDateTime(daily.dt));
+
+            weather2s.add(weather2);
+        }
+
+        return new WeatherForecast2(cityName,weather2s);
+    }
+    private static ArrayList<Daily> getDailyWeatherArray(RootForecast rootForecast){
+        return rootForecast.daily;
+    }
 
 
 

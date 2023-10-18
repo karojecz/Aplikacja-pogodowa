@@ -1,19 +1,29 @@
 package com.example.aplikacjapogodowa.MODEL;
 
+import java.time.LocalDateTime;
+
 public class Weather2 {
+    private final String cityName;
     private final double dayTemp;
     private final int pressure;
     private final double rain;
     private final double wind_speed;
     private final String description;
+    private final LocalDateTime localDateTime;
 
 
-    public Weather2(double dayTemp, int pressure, double rain, double wind_speed, String description) {
+    public Weather2(String cityName, double dayTemp, int pressure, double rain, double wind_speed, String description, LocalDateTime localDateTime) {
+        this.cityName = cityName;
         this.dayTemp = dayTemp;
         this.pressure = pressure;
         this.rain = rain;
         this.wind_speed = wind_speed;
         this.description = description;
+        this.localDateTime = localDateTime;
+    }
+
+    public String getCityName() {
+        return cityName;
     }
 
     public double getDayTemp() {
@@ -34,5 +44,9 @@ public class Weather2 {
 
     public String getDescription() {
         return description;
+    }
+
+    public LocalDateTime getLocalDateTime() {
+        return localDateTime;
     }
 }

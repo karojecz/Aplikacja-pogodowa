@@ -14,6 +14,9 @@ public class WeatherService {
     public WeatherService(OpenWeatherMapsClientForecast weatherClient ){
         this.openWeatherMapsClientForecast =weatherClient;
     }
+    public WeatherForecast2 getWeatherForecast2(String cityName, String countryName) throws IOException {
+        return openWeatherMapsClientForecast.getWeatherForecast2(cityName,countryName);
+    }
 
     public ObservableList<WeatherForecast> getForecastWeather(String cityName, String countryName) throws IOException {
 
