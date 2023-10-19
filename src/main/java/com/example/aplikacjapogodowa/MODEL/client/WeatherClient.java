@@ -1,7 +1,10 @@
 package com.example.aplikacjapogodowa.MODEL.client;
 
-import com.example.aplikacjapogodowa.MODEL.Weather2;
+
+import com.example.aplikacjapogodowa.MODEL.WeatherForecast;
 
 public interface WeatherClient {
-    Weather2 getWeather2(String cityName, String countryName);
+
+
+    WeatherForecast getWeatherForecast2(String cityName, String countryName);
 }

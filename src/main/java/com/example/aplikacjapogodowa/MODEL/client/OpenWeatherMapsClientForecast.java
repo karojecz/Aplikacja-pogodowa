@@ -1,9 +1,9 @@
 package com.example.aplikacjapogodowa.MODEL.client;
 
 import com.example.aplikacjapogodowa.Config;
+
 import com.example.aplikacjapogodowa.MODEL.Weather;
-import com.example.aplikacjapogodowa.MODEL.Weather2;
-import com.example.aplikacjapogodowa.MODEL.WeatherForecast2;
+import com.example.aplikacjapogodowa.MODEL.WeatherForecast;
 import com.example.aplikacjapogodowa.MODEL.geocodingFeatures.GeocodingRoot;
 import com.example.aplikacjapogodowa.MODEL.openWeatherMapsFeaturesForecast.Daily;
 import com.example.aplikacjapogodowa.MODEL.openWeatherMapsFeaturesForecast.RootForecast;
@@ -25,19 +25,16 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 
-public class OpenWeatherMapsClientForecast implements WeatherForecastClient{
+public class OpenWeatherMapsClientForecast implements WeatherClient {
 
-    public static Weather2 getWeather(){
-        return null;
 
-    }
     public static LocalDateTime getLocalDateTime(int dt) {
         Instant instant = Instant.ofEpochSecond( dt );
         LocalDateTime localDateTime =LocalDateTime.ofInstant(instant, ZoneId.systemDefault());
         return localDateTime;
     }
-
-    public WeatherForecast2 getWeatherForecast2(String cityName, String countryName){
+    @Override
+    public WeatherForecast getWeatherForecast2(String cityName, String countryName){
         RootForecast rootForecast= null;
         try {
             rootForecast = getRoot(cityName,countryName);
@@ -45,18 +42,16 @@ public class OpenWeatherMapsClientForecast implements WeatherForecastClient{
             throw new RuntimeException(e);
         }
         ArrayList<Daily> weatherForecastForFiveDays=getDailyWeatherArray(rootForecast);
-        Weather2 weather2;
-        Collection<Weather2> weather2s=new ArrayList<>();
-
-
+        Weather weather2;
+        Collection<Weather> weather2s=new ArrayList<>();
 
         for(Daily daily : weatherForecastForFiveDays){
-            weather2=new Weather2(cityName, daily.temp.day,daily.pressure,daily.rain,daily.wind_speed,daily.weather.get(0).description,getLocalDateTime(daily.dt));
+            weather2=new Weather(cityName, daily.temp.day,daily.pressure,daily.rain,daily.wind_speed,daily.weather.get(0).description,getLocalDateTime(daily.dt));
 
             weather2s.add(weather2);
         }
 
-        return new WeatherForecast2(cityName,weather2s);
+        return new WeatherForecast(cityName,weather2s);
     }
     private static ArrayList<Daily> getDailyWeatherArray(RootForecast rootForecast){
         return rootForecast.daily;
@@ -73,20 +68,15 @@ public class OpenWeatherMapsClientForecast implements WeatherForecastClient{
             double lat=geocodingRoot.lat;
             double lon=geocodingRoot.lon;
 
-
-
             String APIkey = Config.getAPIkey();
             URL endpointTEST = new URL("http://api.openweathermap.org");
             URL url = new URL(endpointTEST, "/data/3.0/onecall?lat=" + lat + "&lon=" + lon + "&appid=" + APIkey + "&units=metric");
 
             InputStreamReader reader = new InputStreamReader(url.openStream());
-
-
             ObjectMapper om = new ObjectMapper();
 
 
             RootForecast root = om.readValue(reader, RootForecast.class);
-
             return root;
 
 
@@ -100,13 +90,8 @@ public class OpenWeatherMapsClientForecast implements WeatherForecastClient{
 
         return null;
     }
-    @Override
-    public Weather<RootForecast> getWeatherForecast(String cityName, String countryName) throws IOException {
-        RootForecast rootForecast=getRoot(cityName,countryName);
-        Weather weather=new Weather<>(rootForecast);
-        return weather;
 
-    }
+
     private static GeocodingRoot getGeocordingRoot(String cityName){
         try {
             String coutryUperCase= WordUtils.capitalizeFully(cityName);
