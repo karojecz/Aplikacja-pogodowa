@@ -2,6 +2,7 @@ package com.example.aplikacjapogodowa.MODEL.client;
 
 import com.example.aplikacjapogodowa.Config;
 import com.example.aplikacjapogodowa.MODEL.geocodingFeatures.GeocodingRoot;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.lang3.text.WordUtils;
@@ -20,7 +21,7 @@ public class Geocoding {
             String coutryUperCase= WordUtils.capitalizeFully(countryName);
 
             //String outputCountryName= changeToEnglishName(coutryUperCase);
-            String cityName2="Lisewo";
+            String cityName2="kair";
             String countryCode2="UK";
 
 
@@ -35,8 +36,9 @@ public class Geocoding {
 
 
             ObjectMapper om = new ObjectMapper();
+            om.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
-           // Root root = om.readValue(reader, Root.class);
+            // Root root = om.readValue(reader, Root.class);
             GeocodingRoot[] root = om.readValue(reader, GeocodingRoot[].class);
             for(int i=0; i<root.length; i++){
                 System.out.println(i+" "+root[i]);

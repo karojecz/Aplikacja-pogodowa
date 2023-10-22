@@ -156,6 +156,11 @@ public class LocalNames {
     public String oj;
     public String cr;
 
+    public String la;
+    public String ak;
+    public String ty;
+    public String lg;
+
     @Override
     public String toString() {
         return "LocalNames{" +
@@ -310,6 +315,9 @@ public class LocalNames {
                 ", iu='" + iu + '\'' +
                 ", oj='" + oj + '\'' +
                 ", cr='" + cr + '\'' +
+                ", la='" + la + '\'' +
+                ", ak='" + ak + '\'' +
+                ", ty='" + ty + '\'' +
                 '}';
     }
 }

@@ -104,7 +104,7 @@ public class OpenWeatherMapsClientForecast implements WeatherClient {
 
             ObjectMapper om = new ObjectMapper();
             GeocodingRoot[] root = om.readValue(reader, GeocodingRoot[].class);
-            System.out.println(root[0]);
+            //System.out.println(root[0]);
             return root[0];
         } catch (MalformedURLException | ConnectException | JsonMappingException | FileNotFoundException e) {
             e.printStackTrace();
