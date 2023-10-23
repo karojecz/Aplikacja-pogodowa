@@ -5,6 +5,7 @@ import com.example.aplikacjapogodowa.MODEL.client.Geocoding;
 import com.example.aplikacjapogodowa.MODEL.client.OpenWeatherMapsClientCurrent;
 
 import com.example.aplikacjapogodowa.MODEL.client.OpenWeatherMapsClientForecast;
+import com.example.aplikacjapogodowa.VIEW.ViewFactory;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -17,8 +18,11 @@ import java.net.URISyntaxException;
 public class Launcher extends Application {
     @Override
     public void start(Stage stage) throws IOException, URISyntaxException {
+        ViewFactory viewFactory=new ViewFactory();
+        viewFactory.showMAinWindow();
+        /*
         MainViewController mainViewController=new MainViewController("MainView.fxml");
-       //FXMLLoader fxmlLoader = new FXMLLoader(WeatherApplication.class.getResource("MainView.fxml"));
+
        FXMLLoader fxmlLoader = new FXMLLoader(Launcher.class.getResource(mainViewController.getFxmlName()));
         fxmlLoader.setController(mainViewController);
         Scene scene = new Scene(fxmlLoader.load());
@@ -26,16 +30,14 @@ public class Launcher extends Application {
         stage.setScene(scene);
         stage.show();
 
-       // OpenWeatherMapsClientCurrent openWeatherMapsClient=new OpenWeatherMapsClientCurrent();
 
-          // openWeatherMapsClient.testApi();
        OpenWeatherMapsClientForecast openWeatherMapsClientForecast=new OpenWeatherMapsClientForecast();
        Geocoding tets=new Geocoding();
         tets.geocodingTest("London","UK");
-       //openWeatherMapsClientForecast.testForecastAPI();
 
 
 
+*/
     }
 
     public static void main(String[] args) {

@@ -23,6 +23,7 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Locale;
 
 
 public class OpenWeatherMapsClientForecast implements WeatherClient {
@@ -64,6 +65,8 @@ public class OpenWeatherMapsClientForecast implements WeatherClient {
         try {
             OpenWeatherMapsClientCurrent openWeatherMapsClientCurrent = new OpenWeatherMapsClientCurrent();
 
+
+
             GeocodingRoot geocodingRoot=getGeocordingRoot(cityName);
             double lat=geocodingRoot.lat;
             double lon=geocodingRoot.lon;
@@ -97,6 +100,8 @@ public class OpenWeatherMapsClientForecast implements WeatherClient {
             String coutryUperCase= WordUtils.capitalizeFully(cityName);
             String cityName2="London";
 
+
+
             String APIkey = Config.getAPIkey2();
 
             URL url=new URL("http://api.openweathermap.org/geo/1.0/direct?q="+cityName+"&limit=5&appid="+APIkey);
@@ -104,7 +109,7 @@ public class OpenWeatherMapsClientForecast implements WeatherClient {
 
             ObjectMapper om = new ObjectMapper();
             GeocodingRoot[] root = om.readValue(reader, GeocodingRoot[].class);
-            //System.out.println(root[0]);
+
             return root[0];
         } catch (MalformedURLException | ConnectException | JsonMappingException | FileNotFoundException e) {
             e.printStackTrace();
@@ -115,6 +120,19 @@ public class OpenWeatherMapsClientForecast implements WeatherClient {
         }
         return null;
 
+    }
+    private static String changeToEnglishName(String name){
+        String englishName=name;
+        Locale outLocale = Locale.forLanguageTag("en_GB");
+        Locale inLocale = Locale.forLanguageTag("pl-PL");
+        for (Locale l : Locale.getAvailableLocales()) {
+            if (l.getDisplayCountry(inLocale).equals(name)) {
+
+                englishName=l.getDisplayCountry(outLocale);
+                break;
+            }
+        }
+        return englishName;
     }
 
 }
