@@ -8,8 +8,10 @@ import com.example.aplikacjapogodowa.MODEL.geocodingFeatures.GeocodingRoot;
 import com.example.aplikacjapogodowa.MODEL.openWeatherMapsFeaturesForecast.Daily;
 import com.example.aplikacjapogodowa.MODEL.openWeatherMapsFeaturesForecast.RootForecast;
 import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.neovisionaries.i18n.CountryCode;
 import org.apache.commons.lang3.text.WordUtils;
 
 import java.io.FileNotFoundException;
@@ -63,11 +65,9 @@ public class OpenWeatherMapsClientForecast implements WeatherClient {
 
     public static RootForecast getRoot(String cityName, String countryName) throws IOException {
         try {
-            OpenWeatherMapsClientCurrent openWeatherMapsClientCurrent = new OpenWeatherMapsClientCurrent();
 
 
-
-            GeocodingRoot geocodingRoot=getGeocordingRoot(cityName);
+            GeocodingRoot geocodingRoot=getGeocordingRoot(cityName,countryName);
             double lat=geocodingRoot.lat;
             double lon=geocodingRoot.lon;
 
@@ -78,10 +78,9 @@ public class OpenWeatherMapsClientForecast implements WeatherClient {
             InputStreamReader reader = new InputStreamReader(url.openStream());
             ObjectMapper om = new ObjectMapper();
 
-
             RootForecast root = om.readValue(reader, RootForecast.class);
-            return root;
 
+            return root;
 
         } catch (MalformedURLException e){
             e.printStackTrace();
@@ -90,27 +89,33 @@ public class OpenWeatherMapsClientForecast implements WeatherClient {
         }catch (JsonMappingException e){
             e.printStackTrace();
         }
-
         return null;
     }
 
 
-    private static GeocodingRoot getGeocordingRoot(String cityName){
+    private static GeocodingRoot getGeocordingRoot(String cityName, String countryName){
         try {
-            String coutryUperCase= WordUtils.capitalizeFully(cityName);
-            String cityName2="London";
-
-
-
             String APIkey = Config.getAPIkey2();
 
             URL url=new URL("http://api.openweathermap.org/geo/1.0/direct?q="+cityName+"&limit=5&appid="+APIkey);
             InputStreamReader reader = new InputStreamReader(url.openStream());
 
             ObjectMapper om = new ObjectMapper();
+            om.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
             GeocodingRoot[] root = om.readValue(reader, GeocodingRoot[].class);
 
-            return root[0];
+            String countryCode=changeToCountryCode(changeToEnglishName(countryName));
+
+
+            for(GeocodingRoot geocodingRoot:root){
+                System.out.println("geocodingRoot.country "+geocodingRoot.country +" country code "+countryCode);
+
+                if(countryCode.equals(geocodingRoot.country)){
+                    System.out.println("if");
+                    return geocodingRoot;
+                }
+
+            }
         } catch (MalformedURLException | ConnectException | JsonMappingException | FileNotFoundException e) {
             e.printStackTrace();
         } catch (JsonParseException e) {
@@ -121,12 +126,27 @@ public class OpenWeatherMapsClientForecast implements WeatherClient {
         return null;
 
     }
+    /*
+    private static GeocodingRoot checkCountryName(GeocodingRoot[] roots,String countrName){
+        for(GeocodingRoot geocodingRoot :roots){
+            if(geocodingRoot.country==countrName){
+                return geocodingRoot;
+            }
+        }
+        return  null;
+    }
+
+     */
+    private static String changeToCountryCode(String countryName){
+        return CountryCode.findByName(countryName).get(0).name();
+    }
     private static String changeToEnglishName(String name){
-        String englishName=name;
+        String englishName= WordUtils.capitalizeFully(name);
+
         Locale outLocale = Locale.forLanguageTag("en_GB");
         Locale inLocale = Locale.forLanguageTag("pl-PL");
         for (Locale l : Locale.getAvailableLocales()) {
-            if (l.getDisplayCountry(inLocale).equals(name)) {
+            if (l.getDisplayCountry(inLocale).equals(englishName)) {
 
                 englishName=l.getDisplayCountry(outLocale);
                 break;

@@ -21,7 +21,7 @@ public class Geocoding {
             String coutryUperCase= WordUtils.capitalizeFully(countryName);
 
             //String outputCountryName= changeToEnglishName(coutryUperCase);
-            String cityName2="kair";
+            String cityName2="olza";
             String countryCode2="UK";
 
 
