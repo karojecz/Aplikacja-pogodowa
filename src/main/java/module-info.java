@@ -16,12 +16,12 @@ module com.example.aplikacjapogodowa {
 
 
     opens com.example.aplikacjapogodowa to javafx.fxml;
-    opens com.example.aplikacjapogodowa.VIEW;
-    opens com.example.aplikacjapogodowa.CONTROLLER;
-    opens com.example.aplikacjapogodowa.MODEL;
-    opens com.example.aplikacjapogodowa.MODEL.openWeatherMapsFeaturesCurrent;
-    opens  com.example.aplikacjapogodowa.MODEL.openWeatherMapsFeaturesForecast;
-    opens com.example.aplikacjapogodowa.MODEL.geocodingFeatures;
+    opens com.example.aplikacjapogodowa.view;
+    opens com.example.aplikacjapogodowa.controller;
+    opens com.example.aplikacjapogodowa.model;
+    opens com.example.aplikacjapogodowa.model.openWeatherMapsFeaturesCurrent;
+    opens  com.example.aplikacjapogodowa.model.openWeatherMapsFeaturesForecast;
+    opens com.example.aplikacjapogodowa.model.geocodingFeatures;
     exports com.example.aplikacjapogodowa;
-    opens com.example.aplikacjapogodowa.MODEL.client;
+    opens com.example.aplikacjapogodowa.model.client;
 }

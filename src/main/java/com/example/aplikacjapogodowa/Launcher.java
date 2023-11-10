@@ -1,14 +1,7 @@
 package com.example.aplikacjapogodowa;
 
-import com.example.aplikacjapogodowa.CONTROLLER.MainViewController;
-import com.example.aplikacjapogodowa.MODEL.client.Geocoding;
-import com.example.aplikacjapogodowa.MODEL.client.OpenWeatherMapsClientCurrent;
-
-import com.example.aplikacjapogodowa.MODEL.client.OpenWeatherMapsClientForecast;
-import com.example.aplikacjapogodowa.VIEW.ViewFactory;
+import com.example.aplikacjapogodowa.view.ViewFactory;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
