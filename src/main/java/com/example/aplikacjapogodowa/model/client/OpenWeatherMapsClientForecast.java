@@ -77,6 +77,7 @@ public class OpenWeatherMapsClientForecast implements WeatherClient {
 
             InputStreamReader reader = new InputStreamReader(url.openStream());
             ObjectMapper om = new ObjectMapper();
+            om.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
             RootForecast root = om.readValue(reader, RootForecast.class);
 
@@ -104,11 +105,10 @@ public class OpenWeatherMapsClientForecast implements WeatherClient {
             om.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
             GeocodingRoot[] root = om.readValue(reader, GeocodingRoot[].class);
 
-            String countryCode=changeToCountryCode(changeToEnglishName(countryName));
+            String countryCode=changeToCountryCode(countryName);
 
 
             for(GeocodingRoot geocodingRoot:root){
-                System.out.println("geocodingRoot.country "+geocodingRoot.country +" country code "+countryCode);
 
                 if(countryCode.equals(geocodingRoot.country)){
 
@@ -126,19 +126,25 @@ public class OpenWeatherMapsClientForecast implements WeatherClient {
         return null;
 
     }
-    /*
-    private static GeocodingRoot checkCountryName(GeocodingRoot[] roots,String countrName){
-        for(GeocodingRoot geocodingRoot :roots){
-            if(geocodingRoot.country==countrName){
-                return geocodingRoot;
+    private static String changeToCountryCode(String name){
+        String englishName= WordUtils.capitalizeFully(name);
+
+        Locale outLocale = Locale.forLanguageTag("en_GB");
+        Locale inLocale = Locale.forLanguageTag("pl-PL");
+        String countryCode="";
+        for (Locale l : Locale.getAvailableLocales()) {
+            if (l.getDisplayCountry(inLocale).equals(englishName)) {
+
+                englishName=l.getDisplayCountry(outLocale);
+                System.out.println("english name+code: "+englishName+"  "+l.getCountry());
+                countryCode=l.getCountry();
+
+
+                break;
             }
         }
-        return  null;
-    }
+        return countryCode;
 
-     */
-    private static String changeToCountryCode(String countryName){
-        return CountryCode.findByName(countryName).get(0).name();
     }
     private static String changeToEnglishName(String name){
         String englishName= WordUtils.capitalizeFully(name);
@@ -149,10 +155,16 @@ public class OpenWeatherMapsClientForecast implements WeatherClient {
             if (l.getDisplayCountry(inLocale).equals(englishName)) {
 
                 englishName=l.getDisplayCountry(outLocale);
+                System.out.println("english name+code: "+englishName+"  "+l.getCountry());
+
+
                 break;
             }
         }
         return englishName;
     }
+
+
+
 
 }

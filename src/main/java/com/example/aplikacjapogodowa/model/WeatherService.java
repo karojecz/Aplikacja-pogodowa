@@ -9,7 +9,7 @@ public class WeatherService {
     public WeatherService(WeatherClient weatherClient ){
         this.openWeatherMapsClientForecast =weatherClient;
     }
-    public WeatherForecast getWeatherForecast2(String cityName, String countryName) throws IOException {
+    public WeatherForecast getWeatherForecast(String cityName, String countryName) throws IOException {
         return openWeatherMapsClientForecast.getWeatherForecast2(cityName,countryName);
     }
 

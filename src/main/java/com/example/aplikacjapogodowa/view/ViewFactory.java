@@ -24,8 +24,7 @@ public class ViewFactory {
 
 
         OpenWeatherMapsClientForecast openWeatherMapsClientForecast=new OpenWeatherMapsClientForecast();
-        Geocoding tets=new Geocoding();
-        tets.geocodingTest("London","UK");
+
 
 
     }

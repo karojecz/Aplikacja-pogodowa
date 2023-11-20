@@ -9,7 +9,7 @@ module com.example.aplikacjapogodowa {
     requires com.fasterxml.jackson.databind;
     requires jtransc.annotations;
     requires nv.i18n;
-    requires commons.lang3;
+    requires org.apache.commons.lang3;
 
 
 

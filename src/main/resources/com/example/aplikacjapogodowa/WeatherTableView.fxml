@@ -2,19 +2,15 @@
 
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.aplikacjapogodowa.controller.NestedController">
-   <children>
-      <TableView fx:id="tableView" layoutX="-2.0" layoutY="27.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-        <columns>
-          <TableColumn fx:id="date" prefWidth="94.0" text="date" />
-          <TableColumn fx:id="temp" prefWidth="60.0" text="temp" />
-            <TableColumn fx:id="pressure" prefWidth="71.0" text="pressure" />
-            <TableColumn fx:id="windSpeed" prefWidth="90.0" text="wind speed" />
-            <TableColumn fx:id="rain" prefWidth="72.0" text="rain" />
-            <TableColumn fx:id="description" prefWidth="212.0" text="description" />
-        </columns>
-      </TableView>
-   </children>
-</AnchorPane>
+
+<TableView fx:id="tableView" prefHeight="295.0" prefWidth="490.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.aplikacjapogodowa.controller.NestedController">
+  <columns>
+    <TableColumn fx:id="date" prefWidth="94.0" text="date" />
+    <TableColumn fx:id="temp" prefWidth="60.0" text="temp" />
+      <TableColumn fx:id="pressure" prefWidth="61.0" text="pressure" />
+      <TableColumn fx:id="windSpeed" prefWidth="77.0" text="wind speed" />
+      <TableColumn fx:id="rain" minWidth="0.0" prefWidth="55.0" text="rain" />
+      <TableColumn fx:id="description" prefWidth="142.0" text="description" />
+  </columns>
+</TableView>

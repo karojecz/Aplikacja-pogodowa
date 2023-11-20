@@ -41,5 +41,11 @@ public class NestedController {
         tableView.setItems(weather);
 
     }
+    void setTableVisible(Boolean bool){
+        if (bool==true) tableView.setVisible(true);
+        else tableView.setVisible(false);
+
+    }
+
 
 }
