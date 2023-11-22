@@ -22,10 +22,5 @@ public class ViewFactory {
         stage.setScene(scene);
         stage.show();
 
-
-        OpenWeatherMapsClientForecast openWeatherMapsClientForecast=new OpenWeatherMapsClientForecast();
-
-
-
     }
 }

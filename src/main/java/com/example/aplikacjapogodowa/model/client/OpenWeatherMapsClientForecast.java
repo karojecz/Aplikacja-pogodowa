@@ -37,7 +37,7 @@ public class OpenWeatherMapsClientForecast implements WeatherClient {
         return localDateTime;
     }
     @Override
-    public WeatherForecast getWeatherForecast2(String cityName, String countryName){
+    public WeatherForecast getWeatherForecast(String cityName, String countryName){
         RootForecast rootForecast= null;
         try {
             rootForecast = getRoot(cityName,countryName);
@@ -107,7 +107,6 @@ public class OpenWeatherMapsClientForecast implements WeatherClient {
 
             String countryCode=changeToCountryCode(countryName);
 
-
             for(GeocodingRoot geocodingRoot:root){
 
                 if(countryCode.equals(geocodingRoot.country)){
@@ -135,8 +134,6 @@ public class OpenWeatherMapsClientForecast implements WeatherClient {
         for (Locale l : Locale.getAvailableLocales()) {
             if (l.getDisplayCountry(inLocale).equals(englishName)) {
 
-                englishName=l.getDisplayCountry(outLocale);
-                System.out.println("english name+code: "+englishName+"  "+l.getCountry());
                 countryCode=l.getCountry();
 
 
@@ -155,9 +152,6 @@ public class OpenWeatherMapsClientForecast implements WeatherClient {
             if (l.getDisplayCountry(inLocale).equals(englishName)) {
 
                 englishName=l.getDisplayCountry(outLocale);
-                System.out.println("english name+code: "+englishName+"  "+l.getCountry());
-
-
                 break;
             }
         }

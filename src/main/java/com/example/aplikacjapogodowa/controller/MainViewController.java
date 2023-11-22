@@ -11,7 +11,6 @@ import javafx.scene.control.*;
 
 import java.io.IOException;
 import java.net.URL;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.ResourceBundle;
@@ -28,23 +27,10 @@ public class MainViewController implements FxmlDefinedController, Initializable 
     private Button checkWeatherButton;
 
     @FXML
-    private TextField cityName;
-    @FXML
-    private TextField cityNameDestination;
+    private TextField cityName, cityNameDestination,countryName,countryNameDestination;
 
     @FXML
-    private TextField countryName;
-    @FXML
-    private TextField countryNameDestination;
-
-
-    @FXML
-    private Label originTableName;
-    @FXML
-    private Label destinationTableName;
-
-    @FXML
-    private Label textFieldErrorLabel;
+    private Label originTableName,destinationTableName,textFieldErrorLabel;
 
 
     private WeatherService weatherService;
@@ -56,13 +42,11 @@ public class MainViewController implements FxmlDefinedController, Initializable 
     @FXML
     void CheckWeatherAction() throws IOException {
 
-
         String cityName = this.cityName.getText();
         String countryName = this.countryName.getText();
 
         String cityNameDestination = this.cityNameDestination.getText();
         String countryNameDestination = this.countryNameDestination.getText();
-
 
         try {
 
@@ -105,7 +89,7 @@ public class MainViewController implements FxmlDefinedController, Initializable 
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        Collection<Weather> weathers = weatherForecast.getWeather2s();
+        Collection<Weather> weathers = weatherForecast.getWeathers();
         ObservableList<Weather> list = FXCollections.observableList(new ArrayList<>(weathers));
         return list;
     }
