@@ -4,18 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="510f8960-cd30-4ae3-bd04-5dd2d5109ea8" name="Changes" comment="change changeToCountryCode method to Locale class feature">
+    <list default="true" id="510f8960-cd30-4ae3-bd04-5dd2d5109ea8" name="Changes" comment="cleaning code/remove methodhs from Geocoding.java">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/HelloController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/Launcher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/controller/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/controller/MainViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/controller/testController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/model/WeatherForecast.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/model/WeatherForecast.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/model/WeatherService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/model/WeatherService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/model/client/Geocoding.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/model/client/Geocoding.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/model/client/OpenWeatherMapsClientCurrent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/model/client/OpenWeatherMapsClientCurrent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/controller/NestedController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/controller/NestedController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/model/WeatherServiceFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/model/WeatherServiceFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/model/client/Geocoding.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/model/client/OpenWeatherMapsClientCurrent.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/model/client/OpenWeatherMapsClientForecast.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/model/client/OpenWeatherMapsClientForecast.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/model/client/WeatherClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/model/client/WeatherClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/view/ViewFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/aplikacjapogodowa/view/ViewFactory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -366,7 +363,14 @@
       <option name="project" value="LOCAL" />
       <updated>1700503298487</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="cleaning code/remove methodhs from Geocoding.java">
+      <created>1700679036018</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1700679036018</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -393,7 +397,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add to string metod to RootForecast" />
     <MESSAGE value="add getCorrds method to forecast" />
     <MESSAGE value="add date to weather constructor" />
     <MESSAGE value="add date to weather model" />
@@ -418,6 +421,7 @@
     <MESSAGE value="fix problem with country names" />
     <MESSAGE value="add nested controllers to MainViewController" />
     <MESSAGE value="change changeToCountryCode method to Locale class feature" />
-    <option name="LAST_COMMIT_MESSAGE" value="change changeToCountryCode method to Locale class feature" />
+    <MESSAGE value="cleaning code/remove methodhs from Geocoding.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="cleaning code/remove methodhs from Geocoding.java" />
   </component>
 </project>

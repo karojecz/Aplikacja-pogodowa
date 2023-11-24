@@ -1,6 +1,5 @@
 package com.example.aplikacjapogodowa.model;
 
-
 import com.example.aplikacjapogodowa.model.client.OpenWeatherMapsClientForecast;
 import com.example.aplikacjapogodowa.model.client.WeatherClient;
 

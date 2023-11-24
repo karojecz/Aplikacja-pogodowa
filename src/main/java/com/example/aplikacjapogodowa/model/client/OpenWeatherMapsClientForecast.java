@@ -1,7 +1,6 @@
 package com.example.aplikacjapogodowa.model.client;
 
 import com.example.aplikacjapogodowa.Config;
-
 import com.example.aplikacjapogodowa.model.Weather;
 import com.example.aplikacjapogodowa.model.WeatherForecast;
 import com.example.aplikacjapogodowa.model.geocodingFeatures.GeocodingRoot;
@@ -11,7 +10,6 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.neovisionaries.i18n.CountryCode;
 import org.apache.commons.lang3.text.WordUtils;
 
 import java.io.FileNotFoundException;
@@ -63,7 +61,7 @@ public class OpenWeatherMapsClientForecast implements WeatherClient {
 
 
 
-    public static RootForecast getRoot(String cityName, String countryName) throws IOException {
+    private static RootForecast getRoot(String cityName, String countryName) throws IOException {
         try {
 
 

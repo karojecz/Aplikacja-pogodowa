@@ -2,8 +2,6 @@ package com.example.aplikacjapogodowa.view;
 
 import com.example.aplikacjapogodowa.controller.MainViewController;
 import com.example.aplikacjapogodowa.Launcher;
-import com.example.aplikacjapogodowa.model.client.Geocoding;
-import com.example.aplikacjapogodowa.model.client.OpenWeatherMapsClientForecast;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -21,6 +19,5 @@ public class ViewFactory {
         stage.setTitle("Weather Forecast");
         stage.setScene(scene);
         stage.show();
-
     }
 }

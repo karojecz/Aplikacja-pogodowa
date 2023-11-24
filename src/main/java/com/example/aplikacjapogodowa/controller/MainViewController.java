@@ -27,10 +27,10 @@ public class MainViewController implements FxmlDefinedController, Initializable 
     private Button checkWeatherButton;
 
     @FXML
-    private TextField cityName, cityNameDestination,countryName,countryNameDestination;
+    private TextField cityName, cityNameDestination, countryName, countryNameDestination;
 
     @FXML
-    private Label originTableName,destinationTableName,textFieldErrorLabel;
+    private Label originTableName, destinationTableName, textFieldErrorLabel;
 
 
     private WeatherService weatherService;
@@ -48,27 +48,22 @@ public class MainViewController implements FxmlDefinedController, Initializable 
         String cityNameDestination = this.cityNameDestination.getText();
         String countryNameDestination = this.countryNameDestination.getText();
 
+
+
         try {
 
             originTableName.setVisible(true);
             originTableName.setText("Weather in " + cityName.substring(0, 1).toUpperCase() + cityName.substring(1).toLowerCase());
-
             textFieldErrorLabel.setVisible(false);
-
-            destinationTableController.displayWeather(this.settingWeatherData(cityNameDestination, countryNameDestination));
-            originTableController.displayWeather(this.settingWeatherData(cityName, countryName));
-
             originTableName.setVisible(true);
-            originTableName.setText("Weather in " + cityName.substring(0, 1).toUpperCase() + cityName.substring(1).toLowerCase());
-
+            destinationTableName.setText("Weather in " + cityNameDestination.substring(0, 1).toUpperCase() + cityNameDestination.substring(1).toLowerCase());
             destinationTableController.setTableVisible(true);
             originTableController.setTableVisible(true);
-
             originTableName.setVisible(true);
             destinationTableName.setVisible(true);
 
-
-
+            destinationTableController.displayWeather(this.settingWeatherData(cityNameDestination, countryNameDestination));
+            originTableController.displayWeather(this.settingWeatherData(cityName, countryName));
         } catch (Exception e) {
             e.printStackTrace();
             textFieldErrorLabel.setText("city name or country code are wrong");
@@ -87,16 +82,14 @@ public class MainViewController implements FxmlDefinedController, Initializable 
         try {
             weatherForecast = weatherService.getWeatherForecast(cityName, countryName);
         } catch (IOException e) {
+            textFieldErrorLabel.setVisible(true);
+            textFieldErrorLabel.setText("Weather service error");
             throw new RuntimeException(e);
+
         }
         Collection<Weather> weathers = weatherForecast.getWeathers();
         ObservableList<Weather> list = FXCollections.observableList(new ArrayList<>(weathers));
         return list;
-    }
-
-    private void displayWeather(ObservableList<Weather> weatherOrigin) {
-
-
     }
 
 

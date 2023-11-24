@@ -12,17 +12,13 @@ import java.time.LocalDateTime;
 public class NestedController {
     @FXML
     private TableView<Weather> tableView;
-
-
     @FXML
     private TableColumn<Weather, LocalDateTime> date;
-
     @FXML
     private TableColumn<Weather, String> description;
 
     @FXML
     private TableColumn<Weather, Integer> pressure;
-
 
     @FXML
     private TableColumn<Weather, Double>temp, windSpeed, rain;
@@ -39,12 +35,10 @@ public class NestedController {
         description.setCellValueFactory(new PropertyValueFactory<Weather, String>("description"));
 
         tableView.setItems(weather);
-
     }
     void setTableVisible(Boolean bool){
         if (bool==true) tableView.setVisible(true);
         else tableView.setVisible(false);
-
     }
 
 
